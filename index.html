@@ -282,7 +282,7 @@
             whatsappBtn.disabled = totalQuantity === 0;
         }
 
-        function sendWhatsAppOrder() {
+        async function sendWhatsAppOrder() {
             if (Object.keys(order).length === 0) return; // Si no hay ítems, salir
 
             let itemsForTelegram = []; // Array para enviar a Telegram de forma estructurada
@@ -335,7 +335,7 @@
             const netlifyFunctionUrl = "/.netlify/functions/send-telegram-order";
 
             // Hacer la petición POST a tu función de Netlify en segundo plano
-            fetch(netlifyFunctionUrl, {
+            const response = await fetch(netlifyFunctionUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
