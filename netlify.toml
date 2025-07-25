@@ -1,0 +1,2 @@
+[Build]
+functions = "netlify/functions"
