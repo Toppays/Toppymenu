@@ -97,22 +97,6 @@
 
                             <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
                                 <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Cappu-Oreo</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Fusión perfecta de cappuccino y Oreo, para los amantes del café y el chocolate</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('cappuoreo', -1)">-</button>
-                                        <span id="cappuoreo-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('cappuoreo', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-700 to-gray-800"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
                                     <h3 class="font-playfair text-2xl font-semibold text-gray-800">Pie de Limón</h3>
                                     <span class="brand-accent font-bold text-xl">$1.00</span>
                                 </div>
@@ -140,22 +124,6 @@
                                         <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('pieparchita', 1)">+</button>
                                     </div>
                                     <div class="ice-cream-shape bg-gradient-to-b from-orange-400 to-orange-600"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Chocolate</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('chocolate', -1)">-</button>
-                                        <span id="chocolate-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('chocolate', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-800 to-amber-900"></div>
                                 </div>
                             </div>
 
@@ -232,10 +200,10 @@
         let menuItems = {
             // Cremosos - $1.00
             oreo: { name: 'Oreo', price: 1.00, category: 'cremoso' },
-            cappuoreo: { name: 'Cappu-Oreo', price: 1.00, category: 'cremoso' },
+            
             pielimon: { name: 'Pie de Limón', price: 1.00, category: 'cremoso' },
             pieparchita: { name: 'Pie de Parchita', price: 1.00, category: 'cremoso' },
-            chocolate: { name: 'Chocolate', price: 1.00, category: 'cremoso' },
+            
             trululu: { name: 'Trululú', price: 1.00, category: 'cremoso' },
             galletamaria: { name: 'Galleta María', price: 1.00, category: 'cremoso' },
             // Frutales - $0.65
