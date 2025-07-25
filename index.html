@@ -294,6 +294,95 @@
         }
 
         function sendWhatsAppOrder() {
+    if (Object.keys(order).length === 0) return; // Si no hay ítems, salir
+
+    let itemsForTelegram = []; // Array para enviar a Telegram de forma estructurada
+    let whatsappMessage = "*PEDIDO TOPPAYS*\n\n"; // El mensaje que irá a WhatsApp
+    let total = 0;
+    let totalQuantity = 0;
+
+    // Bucle para procesar los ítems del pedido
+    for (const [itemId, orderItem] of Object.entries(order)) {
+        if (orderItem.quantity > 0) {
+            const menuItem = menuItems[itemId];
+            const itemTotal = menuItem.price * orderItem.quantity;
+            const categoryIcon = menuItem.category === 'cremoso' ? 'CREMOSO' : 'FRUTAL';
+
+            // Añadir al mensaje de WhatsApp
+            whatsappMessage += `${categoryIcon} - *${menuItem.name}*\n`;
+            whatsappMessage += `   Cantidad: ${orderItem.quantity}\n`;
+            whatsappMessage += `   Subtotal: $${itemTotal.toFixed(2)}\n\n`;
+
+            // Añadir al array para Telegram (con la estructura que espera la función)
+            itemsForTelegram.push({
+                name: menuItem.name,
+                quantity: orderItem.quantity,
+                price: menuItem.price,
+                subtotal: itemTotal
+            });
+
+            total += itemTotal;
+            totalQuantity += orderItem.quantity;
+        }
+    }
+
+    // Aplicar descuento si aplica
+    let finalTotal = total;
+    if (totalQuantity >= 5) {
+        const discount = total * 0.10;
+        finalTotal = total - discount;
+        whatsappMessage += `*DESCUENTO DEL 10%*\n`;
+        whatsappMessage += `Subtotal: $${total.toFixed(2)}\n`;
+        whatsappMessage += `Descuento: -$${discount.toFixed(2)}\n`;
+        whatsappMessage += `*Solo ventas de contado*\n\n`;
+    }
+
+    // Finalizar el mensaje de WhatsApp
+    whatsappMessage += `*TOTAL: $${finalTotal.toFixed(2)}*\n\n`;
+    whatsappMessage += `Confirmar pedido al: 0412-9843410`; // <-- ASEGÚRATE QUE ESTE ES TU NÚMERO AL QUE LLEGAN LOS PEDIDOS DE WHATSAPP
+
+    // --- INICIO DE LA SECCIÓN PARA ENVIAR A TELEGRAM ---
+    // URL de tu función de Netlify. Es una ruta relativa, Netlify la resolverá.
+    const netlifyFunctionUrl = "/.netlify/functions/send-telegram-order";
+
+    // Hacer la petición POST a tu función de Netlify en segundo plano
+    fetch(netlifyFunctionUrl, {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        // Enviamos el mensaje de WhatsApp, el total final y los ítems estructurados
+        body: JSON.stringify({
+            message: whatsappMessage,
+            total: finalTotal,
+            items: itemsForTelegram
+        }),
+    })
+    .then(response => {
+        if (!response.ok) {
+            // Si la función de Netlify devuelve un error (ej. 500)
+            console.error('Error enviando a Telegram:', response.status, response.statusText);
+        }
+        return response.text(); // o response.json() si la función devolviera un JSON más complejo
+    })
+    .then(data => {
+        // Esto es para depuración: ver la respuesta de la función de Netlify en la consola del navegador
+        console.log('Respuesta de la Función de Telegram:', data);
+    })
+    .catch(error => {
+        // Capturar errores de red o cualquier otro error en la llamada a la función
+        console.error('Error en la llamada a la función de Netlify:', error);
+    })
+    .finally(() => {
+        // --- FIN DE LA SECCIÓN DE TELEGRAM ---
+
+        // Redireccionar al WhatsApp (esto siempre se ejecuta al final, sin importar el éxito de la función de Telegram)
+        const phoneNumber = "584129843410"; // <-- ASEGÚRATE QUE ESTE ES TU NÚMERO EN FORMATO INTERNACIONAL SIN EL +
+        const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
+
+        window.location.href = whatsappUrl;
+    });
+}
             if (Object.keys(order).length === 0) return;
             
             let message = "*PEDIDO TOPPAYS*\n\n";
