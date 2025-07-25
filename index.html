@@ -383,48 +383,7 @@
         window.location.href = whatsappUrl;
     });
 }
-            if (Object.keys(order).length === 0) return;
             
-            let message = "*PEDIDO TOPPAYS*\n\n";
-            let total = 0;
-            let totalQuantity = 0;
-            
-            // Add items to message
-            for (const [itemId, orderItem] of Object.entries(order)) {
-                if (orderItem.quantity > 0) {
-                    const menuItem = menuItems[itemId];
-                    const itemTotal = menuItem.price * orderItem.quantity;
-                    const categoryIcon = menuItem.category === 'cremoso' ? 'CREMOSO' : 'FRUTAL';
-                    
-                    message += `${categoryIcon} - *${menuItem.name}*\n`;
-                    message += `   Cantidad: ${orderItem.quantity}\n`;
-                    message += `   Subtotal: $${itemTotal.toFixed(2)}\n\n`;
-                    
-                    total += itemTotal;
-                    totalQuantity += orderItem.quantity;
-                }
-            }
-            
-            // Apply discount if applicable
-            let finalTotal = total;
-            if (totalQuantity >= 5) {
-                const discount = total * 0.10;
-                finalTotal = total - discount;
-                message += `*DESCUENTO DEL 10%*\n`;
-                message += `Subtotal: $${total.toFixed(2)}\n`;
-                message += `Descuento: -$${discount.toFixed(2)}\n`;
-                message += `*Solo ventas de contado*\n\n`;
-            }
-            
-            message += `*TOTAL: $${finalTotal.toFixed(2)}*\n\n`;
-            message += `Confirmar pedido al: 0412-9843410`;
-            
-            // Create WhatsApp URL
-            const phoneNumber = "584129843410"; // Venezuelan format for WhatsApp
-            const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            
-            // Try to open WhatsApp app first, fallback to web if needed
-            window.location.href = whatsappUrl;
         }
     </script>
 <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9637d0149076a67a',t:'MTc1MzIzODQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
