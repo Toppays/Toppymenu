@@ -1,6 +1,6 @@
-// netlify/functions/send-telegram-order.js
+﻿// netlify/functions/send-telegram-order.js
 
-const axios = require('axios'); 
+const axios = require('axios'); // Para hacer peticiones HTTP (instalarás esto después)
 
 exports.handler = async function(event, context) {
     if (event.httpMethod !== 'POST') {
@@ -10,8 +10,8 @@ exports.handler = async function(event, context) {
         };
     }
 
-    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN; 
-    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;     
+    const BOT_TOKEN = process.env.TELEGRAM_BOT_TOKEN; // Guardado de forma segura en Netlify
+    const CHAT_ID = process.env.TELEGRAM_CHAT_ID;     // Guardado de forma segura en Netlify
 
     if (!BOT_TOKEN || !CHAT_ID) {
         console.error('Missing Telegram Bot Token or Chat ID in environment variables.');
@@ -22,23 +22,23 @@ exports.handler = async function(event, context) {
     }
 
     try {
-        const { message, total, items } = JSON.parse(event.body); 
+        const { message, total, items } = JSON.parse(event.body); // La información que enviará tu menú
 
-        
+        // Formatear el mensaje para Telegram
         let telegramMessage = `*🚨 ¡NUEVO PEDIDO TÖPPÄYS! 🚨*\n\n`;
         telegramMessage += `*Detalles del Pedido:*\n`;
         items.forEach(item => {
             telegramMessage += `• ${item.name} x ${item.quantity} ($${item.subtotal.toFixed(2)})\n`;
         });
         telegramMessage += `\n*TOTAL: $${total.toFixed(2)}*\n\n`;
-        telegramMessage += `_Cliente ha iniciado WhatsApp contigo._`; 
+        telegramMessage += `_Cliente ha iniciado WhatsApp contigo._`; // Para recordarte que el cliente te escribió
 
         const telegramApiUrl = `https://api.telegram.org/bot${BOT_TOKEN}/sendMessage`;
 
         await axios.post(telegramApiUrl, {
             chat_id: CHAT_ID,
             text: telegramMessage,
-            parse_mode: 'Markdown' 
+            parse_mode: 'Markdown' // Para que el texto se vea en negrita, etc.
         });
 
         return {
