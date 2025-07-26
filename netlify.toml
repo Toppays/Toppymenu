@@ -1,2 +1,10 @@
 [build]
 functions = "netlify/functions"
+
+[[headers]]
+  for = "/.netlify/functions/*" # Aplica estas cabeceras a todas tus funciones
+  [headers.values]
+    Access-Control-Allow-Origin = "*" # Permite cualquier origen (para desarrollo/pruebas, luego especificar)
+    Access-Control-Allow-Methods = "POST, GET, OPTIONS" # Métodos permitidos
+    Access-Control-Allow-Headers = "Content-Type" # Cabeceras permitidas
+    Access-Control-Max-Age = "86400" # Tiempo de caché para las respuestas preflight
