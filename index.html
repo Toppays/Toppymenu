@@ -332,7 +332,7 @@
 
             // --- INICIO DE LA SECCIÓN PARA ENVIAR A TELEGRAM ---
             // URL de tu función de Netlify. Es una ruta relativa, Netlify la resolverá.
-            const netlifyFunctionUrl = "/.netlify/functions/send-telegram-order";
+            const netlifyFunctionUrl = "https://luxury-empanada-0eaf1e.netlify.app/.netlify/functions/send-telegram-order";
 
             // Hacer la petición POST a tu función de Netlify en segundo plano
             const response = await fetch(netlifyFunctionUrl, {
