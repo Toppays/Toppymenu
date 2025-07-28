@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Töppäys - Heladería Gourmet</title>
-    <link rel="icon" href="/Toppymenu/favicon.png" type="image/png">
-    <script src="https://cdn.tailwindcss.com"></script> 
+    <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
         
@@ -40,6 +39,7 @@
 </head>
 <body class="bg-gradient-to-br from-orange-50 to-yellow-50 font-inter">
     <div class="min-h-screen">
+        <!-- Header -->
         <header class="bg-brand-secondary shadow-sm border-b-4 border-brand-primary">
             <div class="max-w-7xl mx-auto px-4 py-8">
                 <h1 class="text-6xl font-black text-center text-white" style="font-family: Arial, sans-serif; background: linear-gradient(45deg, #FE6B01, #ff8533); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 900;">Töppäys</h1>
@@ -60,7 +60,9 @@
 
         <div class="max-w-7xl mx-auto px-4 py-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Menu Section -->
                 <div class="lg:col-span-2">
+                    <!-- Helados Cremosos -->
                     <section class="mb-12">
                         <div class="category-cremosos rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍦 Helados Cremosos</h2>
@@ -84,6 +86,22 @@
                                         <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('oreo', 1)">+</button>
                                     </div>
                                     <div class="ice-cream-shape bg-gradient-to-b from-gray-700 to-gray-900"></div>
+                                </div>
+                            </div>
+
+                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Cappu-Oreo</h3>
+                                    <span class="brand-accent font-bold text-xl">$1.00</span>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-base">Fusión perfecta de cappuccino y Oreo, para los amantes del café y el chocolate</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('cappuoreo', -1)">-</button>
+                                        <span id="cappuoreo-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('cappuoreo', 1)">+</button>
+                                    </div>
+                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-700 to-gray-800"></div>
                                 </div>
                             </div>
 
@@ -121,6 +139,22 @@
 
                             <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
                                 <div class="flex justify-between items-start mb-4">
+                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Chocolate</h3>
+                                    <span class="brand-accent font-bold text-xl">$1.00</span>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-base">Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('chocolate', -1)">-</button>
+                                        <span id="chocolate-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('chocolate', 1)">+</button>
+                                    </div>
+                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-800 to-amber-900"></div>
+                                </div>
+                            </div>
+
+                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                                <div class="flex justify-between items-start mb-4">
                                     <h3 class="font-playfair text-2xl font-semibold text-gray-800">Trululú</h3>
                                     <span class="brand-accent font-bold text-xl">$1.00</span>
                                 </div>
@@ -153,9 +187,69 @@
                         </div>
                     </section>
 
+                    <!-- Helados Frutales -->
+                    <section class="mb-12">
+                        <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
+                            <h2 class="font-playfair text-4xl font-semibold brand-accent mb-3">🍓 Helados Frutales</h2>
+                            <p class="text-orange-800 font-light text-lg">Sabores naturales y refrescantes, la pureza de la fruta en cada bocado</p>
+                            <div class="mt-4 flex items-center">
+                                <span class="bg-brand-primary text-white px-4 py-2 rounded-full font-semibold">$0.65 cada uno</span>
+                            </div>
+                        </div>
+                        
+                        <div class="grid gap-6">
+                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Parchita</h3>
+                                    <span class="brand-accent font-bold text-xl">$0.65</span>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-base">Intenso sabor tropical de parchita natural, refrescante y lleno de vitaminas</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('parchita', -1)">-</button>
+                                        <span id="parchita-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('parchita', 1)">+</button>
+                                    </div>
+                                    <div class="ice-cream-shape bg-gradient-to-b from-orange-400 to-orange-600"></div>
+                                </div>
+                            </div>
+
+                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Fresa</h3>
+                                    <span class="brand-accent font-bold text-xl">$0.65</span>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-base">Dulce y aromático helado de fresa natural</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('fresa', -1)">-</button>
+                                        <span id="fresa-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('fresa', 1)">+</button>
+                                    </div>
+                                    <div class="ice-cream-shape bg-gradient-to-b from-pink-400 to-red-500"></div>
+                                </div>
+                            </div>
+
+                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                                <div class="flex justify-between items-start mb-4">
+                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Mango</h3>
+                                    <span class="brand-accent font-bold text-xl">$0.65</span>
+                                </div>
+                                <p class="text-gray-600 mb-6 text-base">Exótico y cremoso helado de mango tropical, dulzura natural y sabor auténtico</p>
+                                <div class="flex items-center justify-between">
+                                    <div class="flex items-center space-x-4">
+                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('mango', -1)">-</button>
+                                        <span id="mango-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('mango', 1)">+</button>
+                                    </div>
+                                    <div class="ice-cream-shape bg-gradient-to-b from-yellow-400 to-orange-500"></div>
+                                </div>
+                            </div>
+                        </div>
                     </section>
                 </div>
 
+                <!-- Order Summary -->
                 <div class="lg:col-span-1">
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
                         <h3 class="font-playfair text-3xl font-semibold brand-accent mb-6">Tu Pedido</h3>
@@ -189,10 +283,10 @@
         let menuItems = {
             // Cremosos - $1.00
             oreo: { name: 'Oreo', price: 1.00, category: 'cremoso' },
-            
+            cappuoreo: { name: 'Cappu-Oreo', price: 1.00, category: 'cremoso' },
             pielimon: { name: 'Pie de Limón', price: 1.00, category: 'cremoso' },
             pieparchita: { name: 'Pie de Parchita', price: 1.00, category: 'cremoso' },
-            
+            chocolate: { name: 'Chocolate', price: 1.00, category: 'cremoso' },
             trululu: { name: 'Trululú', price: 1.00, category: 'cremoso' },
             galletamaria: { name: 'Galleta María', price: 1.00, category: 'cremoso' },
             // Frutales - $0.65
@@ -240,7 +334,7 @@
                     const menuItem = menuItems[itemId];
                     const itemTotal = menuItem.price * orderItem.quantity;
                     
-                    const categoryColor = 'brand-accent'; // No se usa directamente en el HTML generado, pero es un buen placeholder
+                    const categoryColor = 'brand-accent';
                     const categoryIcon = menuItem.category === 'cremoso' ? '🍦' : '🍓';
                     
                     html += `
@@ -282,96 +376,50 @@
             whatsappBtn.disabled = totalQuantity === 0;
         }
 
-        async function sendWhatsAppOrder() {
-            if (Object.keys(order).length === 0) return; // Si no hay ítems, salir
-
-            let itemsForTelegram = []; // Array para enviar a Telegram de forma estructurada
-            let whatsappMessage = "*PEDIDO TOPPAYS*\n\n"; // El mensaje que irá a WhatsApp
+        function sendWhatsAppOrder() {
+            if (Object.keys(order).length === 0) return;
+            
+            let message = "*PEDIDO TOPPAYS*\n\n";
             let total = 0;
             let totalQuantity = 0;
-
-            // Bucle para procesar los ítems del pedido
+            
+            // Add items to message
             for (const [itemId, orderItem] of Object.entries(order)) {
                 if (orderItem.quantity > 0) {
                     const menuItem = menuItems[itemId];
                     const itemTotal = menuItem.price * orderItem.quantity;
                     const categoryIcon = menuItem.category === 'cremoso' ? 'CREMOSO' : 'FRUTAL';
-
-                    // Añadir al mensaje de WhatsApp
-                    whatsappMessage += `${categoryIcon} - *${menuItem.name}*\n`;
-                    whatsappMessage += `     Cantidad: ${orderItem.quantity}\n`;
-                    whatsappMessage += `     Subtotal: $${itemTotal.toFixed(2)}\n\n`;
-
-                    // Añadir al array para Telegram (con la estructura que espera la función)
-                    itemsForTelegram.push({
-                        name: menuItem.name,
-                        quantity: orderItem.quantity,
-                        price: menuItem.price,
-                        subtotal: itemTotal
-                    });
-
+                    
+                    message += `${categoryIcon} - *${menuItem.name}*\n`;
+                    message += `   Cantidad: ${orderItem.quantity}\n`;
+                    message += `   Subtotal: $${itemTotal.toFixed(2)}\n\n`;
+                    
                     total += itemTotal;
                     totalQuantity += orderItem.quantity;
                 }
             }
-
-            // Aplicar descuento si aplica
+            
+            // Apply discount if applicable
             let finalTotal = total;
             if (totalQuantity >= 5) {
                 const discount = total * 0.10;
                 finalTotal = total - discount;
-                whatsappMessage += `*DESCUENTO DEL 10%*\n`;
-                whatsappMessage += `Subtotal: $${total.toFixed(2)}\n`;
-                whatsappMessage += `Descuento: -$${discount.toFixed(2)}\n`;
-                whatsappMessage += `*Solo ventas de contado*\n\n`;
+                message += `*DESCUENTO DEL 10%*\n`;
+                message += `Subtotal: $${total.toFixed(2)}\n`;
+                message += `Descuento: -$${discount.toFixed(2)}\n`;
+                message += `*Solo ventas de contado*\n\n`;
             }
-
-            // Finalizar el mensaje de WhatsApp
-            whatsappMessage += `*TOTAL: $${finalTotal.toFixed(2)}*\n\n`;
-            whatsappMessage += `Confirmar pedido al: 0412-9843410`; // <-- ASEGÚRATE QUE ESTE ES TU NÚMERO AL QUE LLEGAN LOS PEDIDOS DE WHATSAPP
-
-            // --- INICIO DE LA SECCIÓN PARA ENVIAR A TELEGRAM ---
-            // URL de tu función de Netlify. Es una ruta relativa, Netlify la resolverá.
-            const netlifyFunctionUrl = "https://luxury-empanada-0eaf1e.netlify.app/.netlify/functions/send-telegram-order";
-
-            // Hacer la petición POST a tu función de Netlify en segundo plano
-            const response = await fetch(netlifyFunctionUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                // Enviamos el mensaje de WhatsApp, el total final y los ítems estructurados
-                body: JSON.stringify({
-                    message: whatsappMessage,
-                    total: finalTotal,
-                    items: itemsForTelegram
-                }),
-            })
-            .then(response => {
-                if (!response.ok) {
-                    // Si la función de Netlify devuelve un error (ej. 500)
-                    console.error('Error enviando a Telegram:', response.status, response.statusText);
-                }
-                return response.text(); // o response.json() si la función devolviera un JSON más complejo
-            })
-            .then(data => {
-                // Esto es para depuración: ver la respuesta de la función de Netlify en la consola del navegador
-                console.log('Respuesta de la Función de Telegram:', data);
-            })
-            .catch(error => {
-                // Capturar errores de red o cualquier otro error en la llamada a la función
-                console.error('Error en la llamada a la función de Netlify:', error);
-            })
-            .finally(() => {
-                // --- FIN DE LA SECCIÓN DE TELEGRAM ---
-
-                // Redireccionar al WhatsApp (esto siempre se ejecuta al final, sin importar el éxito de la función de Telegram)
-                const phoneNumber = "584129843410"; // <-- ASEGÚRATE QUE ESTE ES TU NÚMERO EN FORMATO INTERNACIONAL SIN EL +
-                const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(whatsappMessage)}`;
-
-                window.location.href = whatsappUrl;
-            });
+            
+            message += `*TOTAL: $${finalTotal.toFixed(2)}*\n\n`;
+            message += `Confirmar pedido al: 0412-9843410`;
+            
+            // Create WhatsApp URL
+            const phoneNumber = "584129843410"; // Venezuelan format for WhatsApp
+            const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
+            
+            // Try to open WhatsApp app first, fallback to web if needed
+            window.location.href = whatsappUrl;
         }
     </script>
-    <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9637d0149076a67a',t:'MTc1MzIzODQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9637d0149076a67a',t:'MTc1MzIzODQyMy4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
 </html>
