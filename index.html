@@ -12,7 +12,7 @@
         .font-inter { font-family: 'Inter', sans-serif; }
         
         .category-cremosos { background: linear-gradient(135deg, #FE6B01 0%, #ff8533 100%); }
-        .category-frutales { background: linear-gradient(135deg, #FCFFF6 0%, #f0f7e8 100%); border: 3px solid #FE6B01; }
+        /* .category-frutales { background: linear-gradient(135deg, #FCFFF6 0%, #f0f7e8 100%); border: 3px solid #FE6B01; } */
         
         .item-card:hover { transform: translateY(-2px); }
         .quantity-btn:hover { transform: scale(1.1); }
@@ -35,21 +35,10 @@
             border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
             display: inline-block;
         }
-        
-        .delivery-option.selected {
-            border-color: #FE6B01;
-            background-color: #FE6B01;
-            color: white;
-        }
-        
-        .delivery-option.selected span {
-            color: white;
-        }
     </style>
 </head>
 <body class="bg-gradient-to-br from-orange-50 to-yellow-50 font-inter">
     <div class="min-h-screen">
-        <!-- Header -->
         <header class="bg-brand-secondary shadow-sm border-b-4 border-brand-primary">
             <div class="max-w-7xl mx-auto px-4 py-8">
                 <h1 class="text-6xl font-black text-center text-white" style="font-family: Arial, sans-serif; background: linear-gradient(45deg, #FE6B01, #ff8533); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 900;">Töppäys</h1>
@@ -70,9 +59,7 @@
 
         <div class="max-w-7xl mx-auto px-4 py-8">
             <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <!-- Menu Section -->
                 <div class="lg:col-span-2">
-                    <!-- Helados Cremosos -->
                     <section class="mb-12">
                         <div class="category-cremosos rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍦 Helados Cremosos</h2>
@@ -178,91 +165,15 @@
                                     <div class="ice-cream-shape bg-gradient-to-b from-pink-400 to-purple-500"></div>
                                 </div>
                             </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Galleta María</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Cremoso helado con el sabor tradicional de galleta María, comfort food en su máxima expresión</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('galletamaria', -1)">-</button>
-                                        <span id="galletamaria-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('galletamaria', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-300 to-amber-500"></div>
-                                </div>
-                            </div>
-                    </section>
-
-                    <!-- Helados Frutales -->
-                    <section class="mb-12">
-                        <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
-                            <h2 class="font-playfair text-4xl font-semibold brand-accent mb-3">🍓 Helados Frutales</h2>
-                            <p class="text-orange-800 font-light text-lg">Sabores naturales y refrescantes, la pureza de la fruta en cada bocado</p>
-                            <div class="mt-4 flex items-center">
-                                <span class="bg-brand-primary text-white px-4 py-2 rounded-full font-semibold">$0.65 cada uno</span>
-                            </div>
                         </div>
-                        
-                        <div class="grid gap-6">
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Parchita</h3>
-                                    <span class="brand-accent font-bold text-xl">$0.65</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Intenso sabor tropical de parchita natural, refrescante y lleno de vitaminas</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('parchita', -1)">-</button>
-                                        <span id="parchita-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('parchita', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-orange-400 to-orange-600"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Fresa</h3>
-                                    <span class="brand-accent font-bold text-xl">$0.65</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Dulce y aromático helado de fresa natural</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('fresa', -1)">-</button>
-                                        <span id="fresa-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('fresa', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-pink-400 to-red-500"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Mango</h3>
-                                    <span class="brand-accent font-bold text-xl">$0.65</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Exótico y cremoso helado de mango tropical, dulzura natural y sabor auténtico</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('mango', -1)">-</button>
-                                        <span id="mango-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('mango', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-yellow-400 to-orange-500"></div>
-                                </div>
-                            </div>
                     </section>
-                </div>
 
-                <!-- Order Summary -->
+                    </div>
+
                 <div class="lg:col-span-1">
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
                         <h3 class="font-playfair text-3xl font-semibold brand-accent mb-6">Tu Pedido</h3>
                         
-                        <!-- Pickup/Delivery Selection -->
                         <div class="mb-8 p-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border-2 border-orange-100">
                             <h4 class="font-semibold text-gray-800 mb-4 text-lg">🚚 Método de Entrega</h4>
                             <div class="grid grid-cols-2 gap-3">
@@ -280,7 +191,8 @@
                             <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
                                 <p class="text-blue-800 text-sm font-medium mb-2">📍 Información de Delivery:</p>
                                 <p class="text-blue-700 text-xs leading-relaxed">
-                                    Si la distancia desde el local al punto de entrega es menor a dos kilómetros, el delivery será gratuito a partir de tres unidades. De tener el punto de entrega una distancia mayor o de ser un pedido de menor cantidad, el precio del Delivery será propuesto por la sección de "Mandaditos" de Yummy app.
+                                    Si la distancia desde el local al punto de entrega es menor a dos kilómetros, el delivery será gratuito a partir de tres unidades.
+                                    De tener el punto de entrega una distancia mayor o de ser un pedido de menor cantidad, el precio del Delivery será propuesto por la sección de "Mandaditos" de Yummy app.
                                 </p>
                             </div>
                         </div>
@@ -320,21 +232,19 @@
             pielimon: { name: 'Pie de Limón', price: 1.00, category: 'cremoso' },
             pieparchita: { name: 'Pie de Parchita', price: 1.00, category: 'cremoso' },
             chocolate: { name: 'Chocolate', price: 1.00, category: 'cremoso' },
-            trululu: { name: 'Trululú', price: 1.00, category: 'cremoso' },
-            galletamaria: { name: 'Galleta María', price: 1.00, category: 'cremoso' },
-            // Frutales - $0.65
-            parchita: { name: 'Parchita', price: 0.65, category: 'frutal' },
-            fresa: { name: 'Fresa', price: 0.65, category: 'frutal' },
-            mango: { name: 'Mango', price: 0.65, category: 'frutal' }
+            trululu: { name: 'Trululú', price: 1.00, category: 'cremoso' }
+            // REMOVED: galletamaria: { name: 'Galleta María', price: 1.00, category: 'cremoso' },
+            // REMOVED: Frutales - $0.65
+            // REMOVED: parchita: { name: 'Parchita', price: 0.65, category: 'frutal' },
+            // REMOVED: fresa: { name: 'Fresa', price: 0.65, category: 'frutal' },
+            // REMOVED: mango: { name: 'Mango', price: 0.65, category: 'frutal' }
         };
-
         function updateQuantity(itemId, change) {
             if (!order[itemId]) {
                 order[itemId] = { quantity: 0 };
             }
             
             order[itemId].quantity = Math.max(0, order[itemId].quantity + change);
-            
             if (order[itemId].quantity === 0) {
                 delete order[itemId];
             }
@@ -345,12 +255,10 @@
 
         function selectDeliveryMethod(method) {
             selectedDeliveryMethod = method;
-            
             // Update button styles
             document.getElementById('pickup-btn').classList.remove('selected');
             document.getElementById('delivery-btn').classList.remove('selected');
             document.getElementById(method + '-btn').classList.add('selected');
-            
             updateOrderSummary();
         }
 
@@ -378,9 +286,8 @@
                     const menuItem = menuItems[itemId];
                     const itemTotal = menuItem.price * orderItem.quantity;
                     
-                    const categoryColor = 'brand-accent';
-                    const categoryIcon = menuItem.category === 'cremoso' ? '🍦' : '🍓';
-                    
+                    const categoryColor = 'brand-accent'; // This might need adjustment if you only have one category
+                    const categoryIcon = menuItem.category === 'cremoso' ? '🍦' : '❓'; // Default to '❓' if category not found or removed
                     html += `
                         <div class="flex justify-between items-start bg-gray-50 rounded-lg p-4">
                             <div class="flex-1">
@@ -390,7 +297,6 @@
                             <span class="font-bold text-lg brand-accent">$${itemTotal.toFixed(2)}</span>
                         </div>
                     `;
-                    
                     total += itemTotal;
                     totalQuantity += orderItem.quantity;
                 }
@@ -422,7 +328,6 @@
 
         function sendWhatsAppOrder() {
             if (Object.keys(order).length === 0 || !selectedDeliveryMethod) return;
-            
             let message = "*PEDIDO TOPPAYS*\n\n";
             
             // Add delivery method
@@ -437,11 +342,9 @@
                     const menuItem = menuItems[itemId];
                     const itemTotal = menuItem.price * orderItem.quantity;
                     const categoryIcon = menuItem.category === 'cremoso' ? 'CREMOSO' : 'FRUTAL';
-                    
                     message += `${categoryIcon} - *${menuItem.name}*\n`;
                     message += `   Cantidad: ${orderItem.quantity}\n`;
                     message += `   Subtotal: $${itemTotal.toFixed(2)}\n\n`;
-                    
                     total += itemTotal;
                     totalQuantity += orderItem.quantity;
                 }
@@ -464,7 +367,6 @@
             // Create WhatsApp URL
             const phoneNumber = "584129843410"; // Venezuelan format for WhatsApp
             const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            
             // Try to open WhatsApp app first, fallback to web if needed
             window.location.href = whatsappUrl;
         }
