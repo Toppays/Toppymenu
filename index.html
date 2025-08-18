@@ -88,22 +88,6 @@
 
                             <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
                                 <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Cappu-Oreo</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Fusión perfecta de cappuccino y Oreo, para los amantes del café y el chocolate</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('cappuoreo', -1)">-</button>
-                                        <span id="cappuoreo-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('cappuoreo', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-700 to-gray-800"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
                                     <h3 class="font-playfair text-2xl font-semibold text-gray-800">Pie de Limón</h3>
                                     <span class="brand-accent font-bold text-xl">$1.00</span>
                                 </div>
@@ -152,34 +136,7 @@
                         </div>
                     </section>
 
-                    <section class="mb-12">
-                        <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
-                            <h2 class="font-playfair text-4xl font-semibold brand-accent mb-3">🍓 Helados Frutales</h2>
-                            <p class="text-gray-700 font-light text-lg">Sabores vibrantes y refrescantes para un toque tropical</p>
-                            <div class="mt-4 flex items-center">
-                                <span class="bg-white bg-opacity-80 px-4 py-2 rounded-full text-gray-800 font-semibold">$0.65 cada uno</span>
-                            </div>
-                        </div>
-                        
-                        <div class="grid gap-6">
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Parchita</h3>
-                                    <span class="brand-accent font-bold text-xl">$0.65</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Intenso sabor a parchita, un helado agridulce y refrescante para los amantes de los sabores fuertes</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('parchita', -1)">-</button>
-                                        <span id="parchita-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('parchita', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-yellow-300 to-yellow-600"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </div>
+                    </div>
 
                 <div class="lg:col-span-1">
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
@@ -239,16 +196,17 @@
         let menuItems = {
             // Cremosos - $1.00
             oreo: { name: 'Oreo', price: 1.00, category: 'cremoso' },
-            cappuoreo: { name: 'Cappu-Oreo', price: 1.00, category: 'cremoso' },
             pielimon: { name: 'Pie de Limón', price: 1.00, category: 'cremoso' },
             pieparchita: { name: 'Pie de Parchita', price: 1.00, category: 'cremoso' },
-            chocolate: { name: 'Chocolate', price: 1.00, category: 'cremoso' },
+            chocolate: { name: 'Chocolate', price: 1.00, category: 'cremoso' }
+            // REMOVED: cappuoreo: { name: 'Cappu-Oreo', price: 1.00, category: 'cremoso' },
             // REMOVED: trululu: { name: 'Trululú', price: 1.00, category: 'cremoso' },
-            // Frutales - $0.65
-            parchita: { name: 'Parchita', price: 0.65, category: 'frutal' },
+            // REMOVED: Frutales - $0.65
+            // REMOVED: parchita: { name: 'Parchita', price: 0.65, category: 'frutal' },
             // REMOVED: fresa: { name: 'Fresa', price: 0.65, category: 'frutal' },
             // REMOVED: mango: { name: 'Mango', price: 0.65, category: 'frutal' }
         };
+
         function updateQuantity(itemId, change) {
             if (!order[itemId]) {
                 order[itemId] = { quantity: 0 };
