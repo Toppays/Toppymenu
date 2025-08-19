@@ -144,17 +144,16 @@
         let selectedDeliveryMethod = null;
         
         // ** Tasa del día BCV **
-        const bcvRate = 136,89; // Por favor, cámbialo al valor actual del día
+        const bcvRate = 38.00; // Por favor, cámbialo al valor actual del día
 
         // ** INVENTARIO DE HELADOS **
-        // Simplemente cambia el valor de `stock` para cada sabor.
         // Si el `stock` es 1 o 0, el sabor no se mostrará en el menú.
         const inventory = {
             cremosos: {
-                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.00, stock: 3, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
-                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 6, shapeColor: 'bg-gradient-to-b from-yellow-300 to-yellow-500' },
-                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.00, stock: 7, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
-                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores', price: 1.00, stock: 10, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
+                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
+                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 3, shapeColor: 'bg-gradient-to-b from-yellow-300 to-yellow-500' },
+                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.00, stock: 1, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
+                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores', price: 1.00, stock: 0, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
                 cappuoreo: { name: 'Cappu-Oreo', description: 'Una explosión de sabor a café y galleta Oreo, con una textura increíblemente suave', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-500 to-gray-700' }
             },
             frutales: {
@@ -313,8 +312,9 @@
                 `;
             }
             
+            const finalTotalBs = (finalTotal * bcvRate).toFixed(2);
             orderItemsDiv.innerHTML = html + discountHtml;
-            totalPriceSpan.textContent = '$' + finalTotal.toFixed(2);
+            totalPriceSpan.textContent = `$${finalTotal.toFixed(2)} / ${finalTotalBs} Bs`;
             
             // Enable/disable WhatsApp button
             const whatsappBtn = document.getElementById('whatsapp-btn');
