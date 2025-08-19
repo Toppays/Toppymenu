@@ -323,7 +323,7 @@
 
         function sendWhatsAppOrder() {
             if (Object.keys(order).length === 0 || !selectedDeliveryMethod) return;
-            let message = "*PEDIDO TOPPAYS*\n\n";
+            let message = "*FACTURA TOPPAYS*\n\n";
             
             // Add delivery method
             const deliveryText = selectedDeliveryMethod === 'pickup' ? 'PICK UP (Recoger en tienda)' : 'DELIVERY (Envío a domicilio)';
@@ -388,5 +388,6 @@
     </script>
 </body>
 </html>
+
 
 
