@@ -12,7 +12,7 @@
         .font-inter { font-family: 'Inter', sans-serif; }
         
         .category-cremosos { background: linear-gradient(135deg, #FE6B01 0%, #ff8533 100%); }
-        .category-frutales { background: linear-gradient(135deg, #FCFFF6 0%, #f0f7e8 100%); border: 3px solid #FE6B01; }
+        .category-frutales { background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%); border: 3px solid #388E3C; }
         
         .item-card:hover { transform: translateY(-2px); }
         .quantity-btn:hover { transform: scale(1.1); }
@@ -69,74 +69,23 @@
                             </div>
                         </div>
                         
-                        <div class="grid gap-6">
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Oreo</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('oreo', -1)">-</button>
-                                        <span id="oreo-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('oreo', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-gray-700 to-gray-900"></div>
-                                </div>
+                        <div id="cremosos-menu" class="grid gap-6">
                             </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Pie de Limón</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('pielimon', -1)">-</button>
-                                        <span id="pielimon-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('pielimon', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-yellow-300 to-yellow-500"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Pie de Parchita</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('pieparchita', -1)">-</button>
-                                        <span id="pieparchita-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('pieparchita', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-orange-400 to-orange-600"></div>
-                                </div>
-                            </div>
-
-                            <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                                <div class="flex justify-between items-start mb-4">
-                                    <h3 class="font-playfair text-2xl font-semibold text-gray-800">Chocolate</h3>
-                                    <span class="brand-accent font-bold text-xl">$1.00</span>
-                                </div>
-                                <p class="text-gray-600 mb-6 text-base">Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores</p>
-                                <div class="flex items-center justify-between">
-                                    <div class="flex items-center space-x-4">
-                                        <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('chocolate', -1)">-</button>
-                                        <span id="chocolate-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                        <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('chocolate', 1)">+</button>
-                                    </div>
-                                    <div class="ice-cream-shape bg-gradient-to-b from-amber-800 to-amber-900"></div>
-                                </div>
+                    </section>
+                    
+                    <section class="mb-12">
+                        <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
+                            <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍓 Helados Frutales</h2>
+                            <p class="text-green-100 font-light text-lg">Sabores refrescantes y vibrantes, hechos con la mejor fruta</p>
+                            <div class="mt-4 flex items-center">
+                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">$1.00 cada uno</span>
                             </div>
                         </div>
+                        
+                        <div id="frutales-menu" class="grid gap-6">
+                            </div>
                     </section>
-
-                    </div>
+                </div>
 
                 <div class="lg:col-span-1">
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
@@ -193,21 +142,94 @@
         // Order management
         let order = {};
         let selectedDeliveryMethod = null;
-        let menuItems = {
-            // Cremosos - $1.00
-            oreo: { name: 'Oreo', price: 1.00, category: 'cremoso' },
-            pielimon: { name: 'Pie de Limón', price: 1.00, category: 'cremoso' },
-            pieparchita: { name: 'Pie de Parchita', price: 1.00, category: 'cremoso' },
-            chocolate: { name: 'Chocolate', price: 1.00, category: 'cremoso' }
-            // REMOVED: cappuoreo: { name: 'Cappu-Oreo', price: 1.00, category: 'cremoso' },
-            // REMOVED: trululu: { name: 'Trululú', price: 1.00, category: 'cremoso' },
-            // REMOVED: Frutales - $0.65
-            // REMOVED: parchita: { name: 'Parchita', price: 0.65, category: 'frutal' },
-            // REMOVED: fresa: { name: 'Fresa', price: 0.65, category: 'frutal' },
-            // REMOVED: mango: { name: 'Mango', price: 0.65, category: 'frutal' }
+        
+        // ** Tasa del día BCV **
+        const bcvRate = 136,89; // Por favor, cámbialo al valor actual del día
+
+        // ** INVENTARIO DE HELADOS **
+        // Simplemente cambia el valor de `stock` para cada sabor.
+        // Si el `stock` es 1 o 0, el sabor no se mostrará en el menú.
+        const inventory = {
+            cremosos: {
+                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.00, stock: 3, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
+                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 6, shapeColor: 'bg-gradient-to-b from-yellow-300 to-yellow-500' },
+                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.00, stock: 7, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
+                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores', price: 1.00, stock: 10, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
+                cappuoreo: { name: 'Cappu-Oreo', description: 'Una explosión de sabor a café y galleta Oreo, con una textura increíblemente suave', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-500 to-gray-700' }
+            },
+            frutales: {
+                parchita: { name: 'Parchita', description: 'Helado frutal de parchita, con sabor intenso y ácido, perfecto para refrescar', price: 1.00, stock: 4, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' }
+            }
         };
 
+        function renderMenu() {
+            const cremososContainer = document.getElementById('cremosos-menu');
+            const frutalesContainer = document.getElementById('frutales-menu');
+            
+            let cremososHtml = '';
+            let frutalesHtml = '';
+
+            // Render Cremosos
+            for (const [itemId, itemData] of Object.entries(inventory.cremosos)) {
+                if (itemData.stock > 1) { // Muestra el sabor si hay 2 o más unidades
+                    cremososHtml += `
+                        <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-playfair text-2xl font-semibold text-gray-800">${itemData.name}</h3>
+                                <span class="brand-accent font-bold text-xl">$${itemData.price.toFixed(2)}</span>
+                            </div>
+                            <p class="text-gray-600 mb-6 text-base">${itemData.description}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', -1)">-</button>
+                                    <span id="${itemId}-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                    <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', 1)">+</button>
+                                </div>
+                                <div class="ice-cream-shape ${itemData.shapeColor}"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Render Frutales
+            for (const [itemId, itemData] of Object.entries(inventory.frutales)) {
+                if (itemData.stock > 1) { // Muestra el sabor si hay 2 o más unidades
+                    frutalesHtml += `
+                        <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                            <div class="flex justify-between items-start mb-4">
+                                <h3 class="font-playfair text-2xl font-semibold text-gray-800">${itemData.name}</h3>
+                                <span class="brand-accent font-bold text-xl">$${itemData.price.toFixed(2)}</span>
+                            </div>
+                            <p class="text-gray-600 mb-6 text-base">${itemData.description}</p>
+                            <div class="flex items-center justify-between">
+                                <div class="flex items-center space-x-4">
+                                    <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', -1)">-</button>
+                                    <span id="${itemId}-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                                    <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', 1)">+</button>
+                                </div>
+                                <div class="ice-cream-shape ${itemData.shapeColor}"></div>
+                            </div>
+                        </div>
+                    `;
+                }
+            }
+
+            cremososContainer.innerHTML = cremososHtml;
+            frutalesContainer.innerHTML = frutalesHtml;
+        }
+
         function updateQuantity(itemId, change) {
+            let itemData;
+            // Find the item in the correct category
+            if (inventory.cremosos[itemId]) {
+                itemData = inventory.cremosos[itemId];
+            } else if (inventory.frutales[itemId]) {
+                itemData = inventory.frutales[itemId];
+            } else {
+                return; // Item not found
+            }
+
             if (!order[itemId]) {
                 order[itemId] = { quantity: 0 };
             }
@@ -251,18 +273,23 @@
             
             for (const [itemId, orderItem] of Object.entries(order)) {
                 if (orderItem.quantity > 0) {
-                    const menuItem = menuItems[itemId];
+                    let menuItem;
+                    if (inventory.cremosos[itemId]) {
+                        menuItem = inventory.cremosos[itemId];
+                    } else if (inventory.frutales[itemId]) {
+                        menuItem = inventory.frutales[itemId];
+                    }
+                    
                     const itemTotal = menuItem.price * orderItem.quantity;
                     
-                    const categoryColor = menuItem.category === 'cremoso' ? 'brand-accent' : 'text-green-600';
-                    const categoryIcon = menuItem.category === 'cremoso' ? '🍦' : '🍓';
+                    const categoryIcon = inventory.cremosos[itemId] ? '🍦' : '🍓';
                     html += `
                         <div class="flex justify-between items-start bg-gray-50 rounded-lg p-4">
                             <div class="flex-1">
                                 <p class="font-semibold text-gray-800 text-lg">${categoryIcon} ${menuItem.name}</p>
                                 <p class="text-gray-600">Cantidad: ${orderItem.quantity}</p>
                             </div>
-                            <span class="font-bold text-lg ${categoryColor}">$${itemTotal.toFixed(2)}</span>
+                            <span class="font-bold text-lg brand-accent">$${itemTotal.toFixed(2)}</span>
                         </div>
                     `;
                     total += itemTotal;
@@ -307,10 +334,19 @@
             // Add items to message
             for (const [itemId, orderItem] of Object.entries(order)) {
                 if (orderItem.quantity > 0) {
-                    const menuItem = menuItems[itemId];
+                    let menuItem;
+                    let categoryName;
+                    if (inventory.cremosos[itemId]) {
+                        menuItem = inventory.cremosos[itemId];
+                        categoryName = 'CREMOSO';
+                    } else if (inventory.frutales[itemId]) {
+                        menuItem = inventory.frutales[itemId];
+                        categoryName = 'FRUTAL';
+                    }
+                    
                     const itemTotal = menuItem.price * orderItem.quantity;
-                    const categoryIcon = menuItem.category === 'cremoso' ? 'CREMOSO' : 'FRUTAL';
-                    message += `${categoryIcon} - *${menuItem.name}*\n`;
+                    
+                    message += `${categoryName} - *${menuItem.name}*\n`;
                     message += `   Cantidad: ${orderItem.quantity}\n`;
                     message += `   Subtotal: $${itemTotal.toFixed(2)}\n\n`;
                     total += itemTotal;
@@ -329,7 +365,15 @@
                 message += `*Solo ventas de contado*\n\n`;
             }
             
-            message += `*TOTAL: $${finalTotal.toFixed(2)}*\n\n`;
+            const finalTotalBs = (finalTotal * bcvRate).toFixed(2);
+            message += `*TOTAL: $${finalTotal.toFixed(2)} / ${finalTotalBs} Bs*\n\n`;
+
+            // Agregando los datos de pago móvil
+            message += "*Datos para Pago Móvil:*\n";
+            message += "CI: 28134317\n";
+            message += "Banco: 0105 Mercantil\n";
+            message += "Teléfono: 04248172692\n\n";
+
             message += `Confirmar pedido al: 0412-9843410`;
             
             // Create WhatsApp URL
@@ -338,6 +382,9 @@
             // Try to open WhatsApp app first, fallback to web if needed
             window.location.href = whatsappUrl;
         }
+        
+        // Render the menu when the page loads
+        document.addEventListener('DOMContentLoaded', renderMenu);
     </script>
-<script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'96611df1b4211b0d',t:'MTc1MzY3MTUyOS4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</body>
 </html>
