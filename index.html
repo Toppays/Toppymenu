@@ -78,7 +78,7 @@
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍓 Helados Frutales</h2>
                             <p class="text-green-100 font-light text-lg">Sabores refrescantes y vibrantes, hechos con la mejor fruta</p>
                             <div class="mt-4 flex items-center">
-                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">$0.65 cada uno</span>
+                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">$0.30 cada uno</span>
                             </div>
                         </div>
                         
@@ -92,7 +92,7 @@
                         <h3 class="font-playfair text-3xl font-semibold brand-accent mb-6">Tu Pedido</h3>
                         
                         <div class="mb-8 p-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border-2 border-orange-100">
-                            <h4 class="font-semibold text-gray-800 mb-4 text-lg">🚚 Seleccione Método de Entrega</h4>
+                            <h4 class="font-semibold text-gray-800 mb-4 text-lg">🚚 Método de Entrega</h4>
                             <div class="grid grid-cols-2 gap-3">
                                 <button id="pickup-btn" class="delivery-option flex flex-col items-center p-4 rounded-lg border-2 border-orange-200 bg-white hover:bg-orange-50 transition-all duration-300 cursor-pointer" onclick="selectDeliveryMethod('pickup')">
                                     <div class="text-2xl mb-2">🏪</div>
@@ -151,13 +151,14 @@
         const inventory = {
             cremosos: {
                 oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.00, stock: 13, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
-                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 15, shapeColor: 'bg-gradient-to-b from-yellow-300 to-yellow-500' },
+                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 16, shapeColor: 'bg-gradient-to-b from-yellow-300 to-yellow-500' },
                 pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.00, stock: 16, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
-                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate, intenso y cremoso para los verdaderos conocedores', price: 1.00, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
+                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores', price: 1.00, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
                 cappuoreo: { name: 'Cappu-Oreo', description: 'Una explosión de sabor a café y galleta Oreo, con una textura increíblemente suave', price: 1.00, stock: 0, shapeColor: 'bg-gradient-to-b from-gray-500 to-gray-700' }
             },
             frutales: {
-                parchita: { name: 'Parchita', description: 'Helado frutal de parchita, con sabor intenso y ácido, perfecto para refrescar', price: 0.65, stock: 0, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' }
+                parchita: { name: 'Parchita', description: 'Helado frutal de parchita, con sabor intenso y ácido, perfecto para refrescar', price: 0.65, stock: 0, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' },
+                jobito: { name: 'Jobito', description: 'Delicado helado frutal con el sabor dulce y ácido del jobito', price: 0.30, stock: 26, shapeColor: 'bg-gradient-to-b from-yellow-500 to-lime-600' }
             }
         };
 
@@ -323,7 +324,7 @@
 
         function sendWhatsAppOrder() {
             if (Object.keys(order).length === 0 || !selectedDeliveryMethod) return;
-            let message = "*FACTURA TOPPAYS*\n\n";
+            let message = "*PEDIDO TOPPAYS*\n\n";
             
             // Add delivery method
             const deliveryText = selectedDeliveryMethod === 'pickup' ? 'PICK UP (Recoger en tienda)' : 'DELIVERY (Envío a domicilio)';
@@ -388,13 +389,3 @@
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
