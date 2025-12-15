@@ -144,15 +144,15 @@
         let selectedDeliveryMethod = null;
         
         // ** Tasa del día BCV **
-        const bcvRate = 262.10; // Por favor, cámbialo al valor actual del día
+        const bcvRate = 270.78; // Por favor, cámbialo al valor actual del día
 
         // ** INVENTARIO DE HELADOS **
         // Si el `stock` es 1 o 0, el sabor no se mostrará en el menú.
         const inventory = {
             cremosos: {
-                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
-                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
-                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
+                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.00, stock: 0, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
+                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.00, stock: 0, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
+                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.00, stock: 0, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
                 chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores', price: 1.00, stock: 0, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
                 cappuoreo: { name: 'Cappu-Oreo', description: 'Una explosión de sabor a café y galleta Oreo, con una textura increíblemente suave', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-[#2D1300] to-[#1A0D00]' },
                 arequipe: { name: 'Arequipe', description: 'Dulce y cremoso sabor a arequipe, con notas acarameladas que te encantarán', price: 1.00, stock: 5, shapeColor: 'bg-gradient-to-b from-amber-600 to-amber-800' },
@@ -400,6 +400,7 @@
     </script>
 </body>
 </html>
+
 
 
 
