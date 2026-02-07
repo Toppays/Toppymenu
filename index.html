@@ -7,51 +7,29 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
-        
         .font-playfair { font-family: 'Playfair Display', serif; }
         .font-inter { font-family: 'Inter', sans-serif; }
-        
         .category-cremosos { background: linear-gradient(135deg, #FE6B01 0%, #ff8533 100%); }
         .category-frutales { background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%); border: 3px solid #388E3C; }
-        
         .item-card:hover { transform: translateY(-2px); }
-        .quantity-btn:hover { transform: scale(1.1); }
-        
-        .order-summary {
-            position: sticky;
-            top: 2rem;
-            max-height: calc(100vh - 4rem);
-            overflow-y: auto;
-        }
-        
+        .order-summary { position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; }
         .brand-accent { color: #FE6B01; }
-        .brand-secondary { color: #FCFFF6; }
         .bg-brand-primary { background-color: #FE6B01; }
-        .bg-brand-secondary { background-color: #FCFFF6; }
-        .border-brand-primary { border-color: #FE6B01; }
-        .ice-cream-shape {
-            width: 20px;
-            height: 20px;
-            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-            display: inline-block;
-        }
+        .ice-cream-shape { width: 20px; height: 20px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; display: inline-block; }
+        @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+        .animate-promo { animation: bounce-slow 2s infinite; }
     </style>
 </head>
 <body class="bg-gradient-to-br from-orange-50 to-yellow-50 font-inter">
     <div class="min-h-screen">
-        <header class="bg-brand-secondary shadow-sm border-b-4 border-brand-primary">
-            <div class="max-w-7xl mx-auto px-4 py-8">
+        <header class="bg-white shadow-sm border-b-4 border-brand-primary">
+            <div id="header-container" class="max-w-7xl mx-auto px-4 py-8">
                 <h1 class="text-6xl font-black text-center text-white" style="font-family: Arial, sans-serif; background: linear-gradient(45deg, #FE6B01, #ff8533); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 900;">Töppäys</h1>
-                <p class="text-center text-orange-800 mt-3 font-medium text-lg">Heladería Gourmet • Experiencia Única</p>
+                <p class="text-center text-orange-800 mt-3 font-medium text-lg">Heladería Gourmet • Cumaná</p>
                 <p class="text-center brand-accent mt-2 font-bold text-xl">📞 0412-9843410</p>
-                <div class="flex justify-center mt-4 space-x-2">
-                    <div class="ice-cream-shape bg-gradient-to-b from-orange-300 to-orange-500"></div>
-                    <div class="ice-cream-shape bg-gradient-to-b from-yellow-300 to-orange-400"></div>
-                    <div class="ice-cream-shape bg-gradient-to-b from-orange-400 to-red-500"></div>
-                </div>
                 <div class="mt-4 text-center">
                     <p class="text-orange-700 text-sm font-medium bg-orange-50 inline-block px-4 py-2 rounded-full border border-orange-200">
-                        💰 10% descuento en pedidos de 5+ helados • Solo ventas de contado
+                        💰 10% descuento en pedidos de 5+ helados
                     </p>
                 </div>
             </div>
@@ -63,27 +41,16 @@
                     <section class="mb-12">
                         <div class="category-cremosos rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍦 Helados Cremosos</h2>
-                            <p class="text-orange-100 font-light text-lg">Texturas suaves y sabores intensos para el paladar más exigente</p>
-                            <div class="mt-4 flex items-center">
-                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">Precios desde $1.20</span>
-                            </div>
+                            <p class="text-orange-100">Texturas suaves y sabores premium</p>
                         </div>
-                        
-                        <div id="cremosos-menu" class="grid gap-6">
-                            </div>
+                        <div id="cremosos-menu" class="grid gap-6"></div>
                     </section>
-                    
                     <section class="mb-12">
                         <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍓 Helados Frutales</h2>
-                            <p class="text-green-100 font-light text-lg">Sabores refrescantes y vibrantes, hechos con la mejor fruta</p>
-                            <div class="mt-4 flex items-center">
-                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">$0.30 cada uno</span>
-                            </div>
+                            <p class="text-green-100">Refrescantes y naturales ($0.30)</p>
                         </div>
-                        
-                        <div id="frutales-menu" class="grid gap-6">
-                            </div>
+                        <div id="frutales-menu" class="grid gap-6"></div>
                     </section>
                 </div>
 
@@ -91,45 +58,23 @@
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
                         <h3 class="font-playfair text-3xl font-semibold brand-accent mb-6">Tu Pedido</h3>
                         
-                        <div class="mb-8 p-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border-2 border-orange-100">
-                            <h4 class="font-semibold text-gray-800 mb-4 text-lg">🚚 Método de Entrega</h4>
+                        <div class="mb-8 p-4 bg-gray-50 rounded-xl border-2 border-orange-100">
+                            <h4 class="font-semibold text-gray-800 mb-4">🚚 Método de Entrega</h4>
                             <div class="grid grid-cols-2 gap-3">
-                                <button id="pickup-btn" class="delivery-option flex flex-col items-center p-4 rounded-lg border-2 border-orange-200 bg-white hover:bg-orange-50 transition-all duration-300 cursor-pointer" onclick="selectDeliveryMethod('pickup')">
-                                    <div class="text-2xl mb-2">🏪</div>
-                                    <span class="font-semibold text-gray-800">Pick Up</span>
-                                    <span class="text-sm text-gray-600 text-center mt-1">Recoger en tienda</span>
-                                </button>
-                                <button id="delivery-btn" class="delivery-option flex flex-col items-center p-4 rounded-lg border-2 border-orange-200 bg-white hover:bg-orange-50 transition-all duration-300 cursor-pointer" onclick="selectDeliveryMethod('delivery')">
-                                    <div class="text-2xl mb-2">🚚</div>
-                                    <span class="font-semibold text-gray-800">Delivery</span>
-                                    <span class="text-sm text-gray-600 text-center mt-1">Envío a domicilio</span>
-                                </button>
-                            </div>
-                            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
-                                <p class="text-blue-800 text-sm font-medium mb-2">📍 Información de Delivery:</p>
-                                <p class="text-blue-700 text-xs leading-relaxed">
-                                    Si la distancia desde el local al punto de entrega es menor a dos kilómetros, el delivery será gratuito a partir de tres unidades.
-                                    De tener el punto de entrega una distancia mayor o de ser un pedido de menor cantidad, el precio del Delivery será propuesto por la sección de "Mandaditos" de Yummy app.
-                                </p>
+                                <button id="pickup-btn" class="delivery-option p-4 rounded-lg border-2 border-gray-200 bg-white" onclick="selectDeliveryMethod('pickup')">🏪 Pick Up</button>
+                                <button id="delivery-btn" class="delivery-option p-4 rounded-lg border-2 border-gray-200 bg-white" onclick="selectDeliveryMethod('delivery')">🚚 Delivery</button>
                             </div>
                         </div>
+
+                        <div id="order-items" class="space-y-4 mb-8"></div>
                         
-                        <div id="order-items" class="space-y-4 mb-8">
-                            <div class="text-center py-12">
-                                <div class="ice-cream-shape bg-gradient-to-b from-orange-300 to-orange-500 mx-auto mb-4"></div>
-                                <p class="text-gray-500 text-lg">Selecciona tus helados favoritos</p>
-                            </div>
-                        </div>
                         <div class="border-t border-gray-200 pt-6">
                             <div class="flex justify-between items-center text-2xl font-bold mb-6">
                                 <span class="text-gray-800">Total:</span>
                                 <span id="total-price" class="brand-accent">$0.00</span>
                             </div>
-                            <button id="whatsapp-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" onclick="sendWhatsAppOrder()" disabled>
-                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
-                                    <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
-                                </svg>
-                                <span>Enviar Pedido por WhatsApp</span>
+                            <button id="whatsapp-btn" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg disabled:opacity-50" onclick="sendWhatsAppOrder()" disabled>
+                                Enviar por WhatsApp
                             </button>
                         </div>
                     </div>
@@ -139,284 +84,158 @@
     </div>
 
     <script>
-        // Order management
-        let order = {};
-        let selectedDeliveryMethod = null;
-        
-        // ** Tasa del día BCV **
-        const bcvRate = 361.49; // Por favor, cámbialo al valor actual del día
+        // ==========================================
+        // 🚀 MODO PROMOCIÓN (Cambia a true los martes)
+        const esMartesDePromo = true; 
+        // ==========================================
 
-        // ** INVENTARIO DE HELADOS **
-        // Si el `stock` es 1 o 0, el sabor no se mostrará en el menú.
+        let order = {};
+        let selectedDeliveryMethod = 'pickup';
+        const bcvRate = 382.63; 
+
         const inventory = {
             cremosos: {
-                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.20, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
-                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.20, stock: 0, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
-                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.20, stock: 0, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
-                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate premium, intenso y cremoso para los verdaderos conocedores', price: 1.20, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
-                cappuoreo: { name: 'Cappu-Oreo', description: 'Una explosión de sabor a café y galleta Oreo, con una textura increíblemente suave', price: 1.20, stock: 0, shapeColor: 'bg-gradient-to-b from-[#2D1300] to-[#1A0D00]' },
-                arequipe: { name: 'Arequipe', description: 'Dulce y cremoso sabor a arequipe, con notas acarameladas que te encantarán', price: 1.20, stock: 0, shapeColor: 'bg-gradient-to-b from-amber-600 to-amber-800' },
-                cocada: { name: 'Cocada', description: 'Exótico y cremoso helado de coco, refrescante y con un toque tropical', price: 1.20, stock: 16, shapeColor: 'bg-gradient-to-b from-white to-sky-100' },
-                colitaleche: { name: 'Colita con leche', description: 'El sabor nostálgico de la Colita venezolana, cremosa y dulce', price: 1.20, stock: 0, shapeColor: 'bg-gradient-to-b from-red-300 to-pink-500' },
-                ponchecrema: { name: 'Ponche Crema', description: 'El clásico sabor navideño venezolano, cremoso y con notas de ron (contiene alcohol)', price: 1.50, stock: 0, shapeColor: 'bg-gradient-to-b from-[#FFFDD0] to-[#FFFD99]' } 
+                samba: { name: 'Samba de Fresa', description: 'Galleta crocante, chocolate y fresa', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-600 to-amber-900' },
+                oreo: { name: 'Oreo', description: 'Cremoso con trozos de galleta Oreo', price: 1.20, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
+                pielimon: { name: 'Pie de Limón', description: 'Cremoso cítrico con galleta', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
+                pieparchita: { name: 'Pie de Parchita', description: 'Tropical y gourmet', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
+                chocolate: { name: 'Chocolate', description: 'Chocolate Premium intenso', price: 1.20, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
+                cocada: { name: 'Cocada', description: 'Cremoso de coco natural', price: 1.20, stock: 16, shapeColor: 'bg-gradient-to-b from-white to-sky-100' }
             },
             frutales: {
-                parchita: { name: 'Parchita', description: 'Helado frutal de parchita, con sabor intenso y ácido, perfecto para refrescar', price: 0.30, stock: 0, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' },
-                jobito: { name: 'Jobito', description: 'Delicado helado frutal con el sabor dulce y ácido del jobito, una joya tropical', price: 0.30, stock: 0, shapeColor: 'bg-gradient-to-b from-yellow-500 to-lime-600' }
+                parchita: { name: 'Parchita', description: 'Refrescante y ácido', price: 0.30, stock: 5, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' }
             }
         };
 
-        function renderMenu() {
-            const cremososContainer = document.getElementById('cremosos-menu');
-            const frutalesContainer = document.getElementById('frutales-menu');
-            
-            let cremososHtml = '';
-            let frutalesHtml = '';
-
-            // Render Cremosos
-            for (const [itemId, itemData] of Object.entries(inventory.cremosos)) {
-                if (itemData.stock > 1) { // Muestra el sabor si hay 2 o más unidades
-                    cremososHtml += `
-                        <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="font-playfair text-2xl font-semibold text-gray-800">${itemData.name}</h3>
-                                <span class="brand-accent font-bold text-xl">$${itemData.price.toFixed(2)}</span>
-                            </div>
-                            <p class="text-gray-600 mb-6 text-base">${itemData.description}</p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4">
-                                    <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', -1)">-</button>
-                                    <span id="${itemId}-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                    <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', 1)">+</button>
-                                </div>
-                                <div class="ice-cream-shape ${itemData.shapeColor} ${!itemData.shapeColor.startsWith('bg-') ? `style="background: ${itemData.shapeColor};"` : ''}"></div>
-                            </div>
-                        </div>
-                    `;
-                }
+        function renderPromoBanner() {
+            if (esMartesDePromo) {
+                const header = document.getElementById('header-container');
+                const banner = document.createElement('div');
+                banner.className = 'mt-4 animate-promo text-center';
+                banner.innerHTML = `<span class="bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">🔥 ¡MARTES DE PRIMO PROMO! Pie Limón + Parchita = $2.10</span>`;
+                header.appendChild(banner);
             }
-            
-            // Render Frutales
-            for (const [itemId, itemData] of Object.entries(inventory.frutales)) {
-                if (itemData.stock > 1) { // Muestra el sabor si hay 2 o más unidades
-                    frutalesHtml += `
-                        <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
-                            <div class="flex justify-between items-start mb-4">
-                                <h3 class="font-playfair text-2xl font-semibold text-gray-800">${itemData.name}</h3>
-                                <span class="brand-accent font-bold text-xl">$${itemData.price.toFixed(2)}</span>
-                            </div>
-                            <p class="text-gray-600 mb-6 text-base">${itemData.description}</p>
-                            <div class="flex items-center justify-between">
-                                <div class="flex items-center space-x-4">
-                                    <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', -1)">-</button>
-                                    <span id="${itemId}-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
-                                    <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', 1)">+</button>
-                                </div>
-                                <div class="ice-cream-shape ${itemData.shapeColor} ${!itemData.shapeColor.startsWith('bg-') ? `style="background: ${itemData.shapeColor};"` : ''}"></div>
-                            </div>
-                        </div>
-                    `;
-                }
-            }
-
-            cremososContainer.innerHTML = cremososHtml;
-            frutalesContainer.innerHTML = frutalesHtml;
         }
 
-        function updateQuantity(itemId, change) {
-            let itemData;
-            // Find the item in the correct category
-            if (inventory.cremosos[itemId]) {
-                itemData = inventory.cremosos[itemId];
-            } else if (inventory.frutales[itemId]) {
-                itemData = inventory.frutales[itemId];
-            } else {
-                return; // Item not found
-            }
+        function renderMenu() {
+            const cremososCont = document.getElementById('cremosos-menu');
+            const frutalesCont = document.getElementById('frutales-menu');
+            
+            const createCard = (id, item) => `
+                <div class="item-card bg-white rounded-xl shadow p-6 border border-gray-100">
+                    <div class="flex justify-between mb-2">
+                        <h3 class="font-playfair text-xl font-bold">${item.name}</h3>
+                        <span class="brand-accent font-bold">$${item.price.toFixed(2)}</span>
+                    </div>
+                    <p class="text-gray-500 text-sm mb-4">${item.description}</p>
+                    <div class="flex justify-between items-center">
+                        <div class="flex items-center space-x-3">
+                            <button class="bg-gray-200 px-3 py-1 rounded-full font-bold" onclick="updateQuantity('${id}', -1)">-</button>
+                            <span id="${id}-qty" class="font-bold">0</span>
+                            <button class="bg-brand-primary text-white px-3 py-1 rounded-full font-bold" onclick="updateQuantity('${id}', 1)">+</button>
+                        </div>
+                        <div class="ice-cream-shape ${item.shapeColor}"></div>
+                    </div>
+                </div>`;
 
-            if (!order[itemId]) {
-                order[itemId] = { quantity: 0 };
-            }
-            
-            order[itemId].quantity = Math.max(0, order[itemId].quantity + change);
-            if (order[itemId].quantity === 0) {
-                delete order[itemId];
-            }
-            
-            document.getElementById(itemId + '-qty').textContent = order[itemId] ? order[itemId].quantity : 0;
+            cremososCont.innerHTML = Object.entries(inventory.cremosos).filter(i => i[1].stock > 1).map(i => createCard(i[0], i[1])).join('');
+            frutalesCont.innerHTML = Object.entries(inventory.frutales).filter(i => i[1].stock > 1).map(i => createCard(i[0], i[1])).join('');
+        }
+
+        function updateQuantity(id, change) {
+            if (!order[id]) order[id] = { quantity: 0 };
+            order[id].quantity = Math.max(0, order[id].quantity + change);
+            if (order[id].quantity === 0) delete order[id];
+            document.getElementById(id + '-qty').textContent = order[id] ? order[id].quantity : 0;
             updateOrderSummary();
         }
 
         function selectDeliveryMethod(method) {
             selectedDeliveryMethod = method;
-            // Update button styles
-            document.querySelectorAll('.delivery-option').forEach(btn => btn.classList.remove('selected', 'border-brand-primary', 'bg-orange-100'));
-            const selectedBtn = document.getElementById(method + '-btn');
-            if(selectedBtn) {
-                selectedBtn.classList.add('selected', 'border-brand-primary', 'bg-orange-100');
-            }
+            document.querySelectorAll('.delivery-option').forEach(b => b.classList.remove('border-brand-primary', 'bg-orange-50'));
+            document.getElementById(method + '-btn').classList.add('border-brand-primary', 'bg-orange-50');
             updateOrderSummary();
         }
 
         function updateOrderSummary() {
-            const orderItemsDiv = document.getElementById('order-items');
-            const totalPriceSpan = document.getElementById('total-price');
-            const whatsappBtn = document.getElementById('whatsapp-btn');
-            let totalQuantity = 0;
-
+            const container = document.getElementById('order-items');
             if (Object.keys(order).length === 0) {
-                orderItemsDiv.innerHTML = `
-                    <div class="text-center py-12">
-                        <div class="ice-cream-shape bg-gradient-to-b from-orange-300 to-orange-500 mx-auto mb-4"></div>
-                        <p class="text-gray-500 text-lg">Selecciona tus helados favoritos</p>
-                    </div>
-                `;
-                totalPriceSpan.textContent = '$0.00';
-                whatsappBtn.disabled = true;
+                container.innerHTML = `<p class="text-center text-gray-400 py-8">Tu carrito está vacío</p>`;
+                document.getElementById('total-price').textContent = '$0.00';
+                document.getElementById('whatsapp-btn').disabled = true;
                 return;
             }
-            
+
+            let totalOriginal = 0;
+            let totalQuantity = 0;
             let html = '';
-            let total = 0;
-            
-            for (const [itemId, orderItem] of Object.entries(order)) {
-                if (orderItem.quantity > 0) {
-                    let menuItem;
-                    if (inventory.cremosos[itemId]) {
-                        menuItem = inventory.cremosos[itemId];
-                    } else if (inventory.frutales[itemId]) {
-                        menuItem = inventory.frutales[itemId];
-                    }
-                    
-                    const itemTotal = menuItem.price * orderItem.quantity;
-                    
-                    const categoryIcon = inventory.cremosos[itemId] ? '🍦' : '🍓';
-                    html += `
-                        <div class="flex justify-between items-start bg-gray-50 rounded-lg p-4">
-                            <div class="flex-1">
-                                <p class="font-semibold text-gray-800 text-lg">${categoryIcon} ${menuItem.name}</p>
-                                <p class="text-gray-600">Cantidad: ${orderItem.quantity}</p>
-                            </div>
-                            <span class="font-bold text-lg brand-accent">$${itemTotal.toFixed(2)}</span>
-                        </div>
-                    `;
-                    total += itemTotal;
-                    totalQuantity += orderItem.quantity;
+
+            for (const [id, item] of Object.entries(order)) {
+                const data = inventory.cremosos[id] || inventory.frutales[id];
+                const sub = data.price * item.quantity;
+                totalOriginal += sub;
+                totalQuantity += item.quantity;
+                html += `<div class="flex justify-between text-sm"><span>${data.name} x${item.quantity}</span><span class="font-bold">$${sub.toFixed(2)}</span></div>`;
+            }
+
+            // Lógica Primo Promo
+            let descuentoPromo = 0;
+            if (esMartesDePromo) {
+                const cantLimon = order['pielimon'] ? order['pielimon'].quantity : 0;
+                const cantParchita = order['pieparchita'] ? order['pieparchita'].quantity : 0;
+                const numCombos = Math.min(cantLimon, cantParchita);
+                if (numCombos > 0) {
+                    descuentoPromo = numCombos * 0.30;
+                    html += `<div class="text-green-600 text-xs font-bold mt-2">✨ Primo Promo Aplicada (-$${descuentoPromo.toFixed(2)})</div>`;
                 }
             }
-            
-            // Apply 10% discount if 5 or more items
-            let finalTotal = total;
-            let discountHtml = '';
+
+            let totalConPromo = totalOriginal - descuentoPromo;
+            let finalTotal = totalQuantity >= 5 ? totalConPromo * 0.90 : totalConPromo;
             
             if (totalQuantity >= 5) {
-                const discount = total * 0.10;
-                finalTotal = total - discount;
-                discountHtml = `
-                    <div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
-                        <p class="text-green-700 font-semibold text-sm">🎉 ¡Descuento del 10%!</p>
-                        <p class="text-green-600 text-sm">5+ helados: -$${discount.toFixed(2)}</p>
-                        <p class="text-green-600 text-xs">*Solo ventas de contado*</p>
-                    </div>
-                `;
+                html += `<div class="text-blue-600 text-xs font-bold">🎉 Descuento 10% aplicado</div>`;
             }
-            
-            const finalTotalBs = (finalTotal * bcvRate).toFixed(2);
-            orderItemsDiv.innerHTML = html + discountHtml;
-            totalPriceSpan.textContent = `$${finalTotal.toFixed(2)} / ${finalTotalBs} Bs`;
-            
-            // Enable/disable WhatsApp button
-            whatsappBtn.disabled = totalQuantity === 0 || !selectedDeliveryMethod;
+
+            container.innerHTML = html;
+            document.getElementById('total-price').textContent = `$${finalTotal.toFixed(2)} / ${(finalTotal * bcvRate).toFixed(2)} Bs`;
+            document.getElementById('whatsapp-btn').disabled = false;
         }
 
         function sendWhatsAppOrder() {
-            if (Object.keys(order).length === 0 || !selectedDeliveryMethod) return;
-            let message = "*PEDIDO TOPPAYS*\n\n";
+            let message = "*NUEVO PEDIDO TOPPAYS*\n\n";
+            message += `*Entrega:* ${selectedDeliveryMethod.toUpperCase()}\n\n`;
             
-            // Add delivery method
-            const deliveryText = selectedDeliveryMethod === 'pickup' ? 'PICK UP (Recoger en tienda)' : 'DELIVERY (Envío a domicilio)';
-            message += `*Método de entrega:* ${deliveryText}\n\n`;
             let total = 0;
-            let totalQuantity = 0;
-            
-            // Add items to message
-            for (const [itemId, orderItem] of Object.entries(order)) {
-                if (orderItem.quantity > 0) {
-                    let menuItem;
-                    let categoryName;
-                    if (inventory.cremosos[itemId]) {
-                        menuItem = inventory.cremosos[itemId];
-                        categoryName = 'CREMOSO';
-                    } else if (inventory.frutales[itemId]) {
-                        menuItem = inventory.frutales[itemId];
-                        categoryName = 'FRUTAL';
-                    }
-                    
-                    const itemTotal = menuItem.price * orderItem.quantity;
-                    
-                    message += `${categoryName} - *${menuItem.name}*\n`;
-                    message += `   Cantidad: ${orderItem.quantity}\n`;
-                    message += `   Subtotal: $${itemTotal.toFixed(2)}\n\n`;
-                    total += itemTotal;
-                    totalQuantity += orderItem.quantity;
+            let totalQty = 0;
+            for (const [id, item] of Object.entries(order)) {
+                const data = inventory.cremosos[id] || inventory.frutales[id];
+                message += `• ${data.name} x${item.quantity}\n`;
+                total += data.price * item.quantity;
+                totalQty += item.quantity;
+            }
+
+            if (esMartesDePromo) {
+                const numCombos = Math.min(order['pielimon']?.quantity || 0, order['pieparchita']?.quantity || 0);
+                if (numCombos > 0) {
+                    total -= (numCombos * 0.30);
+                    message += `\n🎁 *Promo Martes aplicada!*`;
                 }
             }
-            
-            // Apply discount if applicable
-            let finalTotal = total;
-            if (totalQuantity >= 5) {
-                const discount = total * 0.10;
-                finalTotal = total - discount;
-                message += `*DESCUENTO DEL 10%*\n`;
-                message += `Subtotal: $${total.toFixed(2)}\n`;
-                message += `Descuento: -$${discount.toFixed(2)}\n`;
-                message += `*Solo ventas de contado*\n\n`;
-            }
-            
-            const finalTotalBs = (finalTotal * bcvRate).toFixed(2);
-            message += `*TOTAL: $${finalTotal.toFixed(2)} / ${finalTotalBs} Bs*\n\n`;
 
-            // Agregando los datos de pago móvil
-            message += "*Datos para Pago Móvil:*\n";
-            message += "CI: 28134317\n";
-            message += "Banco: 0105 Mercantil\n";
-            message += "Teléfono: 04248172692\n\n";
+            if (totalQty >= 5) total *= 0.90;
 
-            message += `Confirmar pedido al: 0412-9843410`;
+            message += `\n\n*TOTAL: $${total.toFixed(2)} / ${(total * bcvRate).toFixed(2)} Bs*`;
+            message += `\n\n*Datos Pago Móvil:*\nCI: 28134317\nMercantil (0105)\n04248172692`;
             
-            // Create WhatsApp URL
-            const phoneNumber = "584129843410"; // Venezuelan format for WhatsApp
-            const whatsappUrl = `whatsapp://send?phone=${phoneNumber}&text=${encodeURIComponent(message)}`;
-            // Try to open WhatsApp app first, fallback to web if needed
-            window.location.href = whatsappUrl;
+            window.location.href = `https://wa.me/584129843410?text=${encodeURIComponent(message)}`;
         }
-        
-        // Render the menu and apply initial delivery selection styles
+
         document.addEventListener('DOMContentLoaded', () => {
             renderMenu();
-            // Set initial delivery style to pickup as default, if no selection is made
+            renderPromoBanner();
             selectDeliveryMethod('pickup');
         });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
