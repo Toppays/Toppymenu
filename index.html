@@ -12,25 +12,41 @@
         .category-cremosos { background: linear-gradient(135deg, #FE6B01 0%, #ff8533 100%); }
         .category-frutales { background: linear-gradient(135deg, #4CAF50 0%, #81C784 100%); border: 3px solid #388E3C; }
         .item-card:hover { transform: translateY(-2px); }
+        .quantity-btn:hover { transform: scale(1.1); }
         .order-summary { position: sticky; top: 2rem; max-height: calc(100vh - 4rem); overflow-y: auto; }
         .brand-accent { color: #FE6B01; }
+        .brand-secondary { color: #FCFFF6; }
         .bg-brand-primary { background-color: #FE6B01; }
+        .bg-brand-secondary { background-color: #FCFFF6; }
+        .border-brand-primary { border-color: #FE6B01; }
         .ice-cream-shape { width: 20px; height: 20px; border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%; display: inline-block; }
+        
+        /* Animación para el banner de promo */
         @keyframes bounce-slow { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
         .animate-promo { animation: bounce-slow 2s infinite; }
     </style>
 </head>
 <body class="bg-gradient-to-br from-orange-50 to-yellow-50 font-inter">
     <div class="min-h-screen">
-        <header class="bg-white shadow-sm border-b-4 border-brand-primary">
-            <div id="header-container" class="max-w-7xl mx-auto px-4 py-8">
+        <header class="bg-brand-secondary shadow-sm border-b-4 border-brand-primary">
+            <div class="max-w-7xl mx-auto px-4 py-8">
                 <h1 class="text-6xl font-black text-center text-white" style="font-family: Arial, sans-serif; background: linear-gradient(45deg, #FE6B01, #ff8533); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 900;">Töppäys</h1>
                 <p class="text-center text-orange-800 mt-3 font-medium text-lg">Heladería Gourmet • Experiencia Única</p>
                 <p class="text-center brand-accent mt-2 font-bold text-xl">📞 0412-9843410</p>
+                <div class="flex justify-center mt-4 space-x-2">
+                    <div class="ice-cream-shape bg-gradient-to-b from-orange-300 to-orange-500"></div>
+                    <div class="ice-cream-shape bg-gradient-to-b from-yellow-300 to-orange-400"></div>
+                    <div class="ice-cream-shape bg-gradient-to-b from-orange-400 to-red-500"></div>
+                </div>
                 <div class="mt-4 text-center">
                     <p class="text-orange-700 text-sm font-medium bg-orange-50 inline-block px-4 py-2 rounded-full border border-orange-200">
-                        💰 10% descuento en pedidos de 5+ helados • Solo contado
+                        💰 10% descuento en pedidos de 5+ helados • Solo ventas de contado
                     </p>
+                </div>
+                <div id="promo-banner" class="hidden mt-4 animate-promo text-center">
+                    <span class="bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">
+                        🔥 ¡HOY ES MARTES DE PRIMO PROMO! Pie Limón + Parchita = $2.10
+                    </span>
                 </div>
             </div>
         </header>
@@ -41,14 +57,20 @@
                     <section class="mb-12">
                         <div class="category-cremosos rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍦 Helados Cremosos</h2>
-                            <p class="text-orange-100">Sabores intensos y texturas artesanales</p>
+                            <p class="text-orange-100 font-light text-lg">Texturas suaves y sabores intensos para el paladar más exigente</p>
+                            <div class="mt-4 flex items-center">
+                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">Precios desde $1.20</span>
+                            </div>
                         </div>
                         <div id="cremosos-menu" class="grid gap-6"></div>
                     </section>
                     <section class="mb-12">
                         <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍓 Helados Frutales</h2>
-                            <p class="text-green-100">Refrescantes, hechos con fruta real ($0.30)</p>
+                            <p class="text-green-100 font-light text-lg">Sabores refrescantes y vibrantes, hechos con la mejor fruta</p>
+                            <div class="mt-4 flex items-center">
+                                <span class="bg-white bg-opacity-20 px-4 py-2 rounded-full text-white font-semibold">$0.30 cada uno</span>
+                            </div>
                         </div>
                         <div id="frutales-menu" class="grid gap-6"></div>
                     </section>
@@ -57,11 +79,23 @@
                 <div class="lg:col-span-1">
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
                         <h3 class="font-playfair text-3xl font-semibold brand-accent mb-6">Tu Pedido</h3>
-                        <div class="mb-8 p-4 bg-gray-50 rounded-xl border-2 border-orange-100">
-                            <h4 class="font-semibold text-gray-800 mb-4">🚚 Método de Entrega</h4>
+                        <div class="mb-8 p-6 bg-gradient-to-r from-orange-50 to-yellow-50 rounded-xl border-2 border-orange-100">
+                            <h4 class="font-semibold text-gray-800 mb-4 text-lg">🚚 Método de Entrega</h4>
                             <div class="grid grid-cols-2 gap-3">
-                                <button id="pickup-btn" class="delivery-option p-4 rounded-lg border-2 border-gray-200 bg-white" onclick="selectDeliveryMethod('pickup')">🏪 Pick Up</button>
-                                <button id="delivery-btn" class="delivery-option p-4 rounded-lg border-2 border-gray-200 bg-white" onclick="selectDeliveryMethod('delivery')">🚚 Delivery</button>
+                                <button id="pickup-btn" class="delivery-option flex flex-col items-center p-4 rounded-lg border-2 border-orange-200 bg-white hover:bg-orange-50 transition-all duration-300 cursor-pointer" onclick="selectDeliveryMethod('pickup')">
+                                    <div class="text-2xl mb-2">🏪</div>
+                                    <span class="font-semibold text-gray-800">Pick Up</span>
+                                    <span class="text-sm text-gray-600 text-center mt-1">Recoger en tienda</span>
+                                </button>
+                                <button id="delivery-btn" class="delivery-option flex flex-col items-center p-4 rounded-lg border-2 border-orange-200 bg-white hover:bg-orange-50 transition-all duration-300 cursor-pointer" onclick="selectDeliveryMethod('delivery')">
+                                    <div class="text-2xl mb-2">🚚</div>
+                                    <span class="font-semibold text-gray-800">Delivery</span>
+                                    <span class="text-sm text-gray-600 text-center mt-1">Envío a domicilio</span>
+                                </button>
+                            </div>
+                            <div class="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                                <p class="text-blue-800 text-sm font-medium mb-2">📍 Información de Delivery:</p>
+                                <p class="text-blue-700 text-xs leading-relaxed">Si la distancia desde el local al punto de entrega es menor a dos kilómetros, el delivery será gratuito a partir de tres unidades. De tener el punto de entrega una distancia mayor o de ser un pedido de menor cantidad, el precio del Delivery será propuesto por la sección de "Mandaditos" de Yummy app.</p>
                             </div>
                         </div>
                         <div id="order-items" class="space-y-4 mb-8"></div>
@@ -70,7 +104,9 @@
                                 <span class="text-gray-800">Total:</span>
                                 <span id="total-price" class="brand-accent">$0.00</span>
                             </div>
-                            <button id="whatsapp-btn" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg disabled:opacity-50" onclick="sendWhatsAppOrder()" disabled>Enviar Pedido WhatsApp</button>
+                            <button id="whatsapp-btn" class="w-full bg-green-500 hover:bg-green-600 text-white font-bold py-4 px-6 rounded-xl transition-all duration-300 flex items-center justify-center space-x-3 shadow-lg disabled:opacity-50 disabled:cursor-not-allowed" onclick="sendWhatsAppOrder()" disabled>
+                                <span>Enviar Pedido por WhatsApp</span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -80,130 +116,139 @@
 
     <script>
         // ==========================================
-        // 🚀 MODO PROMOCIÓN (Cambia a true los martes)
+        // 🚀 INTERRUPTOR DE PROMOCIÓN (Cambia a true los martes)
         const esMartesDePromo = true; 
         // ==========================================
 
         let order = {};
-        let selectedDeliveryMethod = 'pickup';
-        const bcvRate = 36.50; 
+        let selectedDeliveryMethod = null;
+        const bcvRate = 382.63; // Mantengo tu tasa actual
 
         const inventory = {
             cremosos: {
-                samba: { name: 'Samba de Fresa', description: 'Cremosidad de fresa, trozos de galleta y chocolate. Todo lo que amas de la Samba, ahora en una Töppäys."', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-600 to-amber-900' },
-                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
-                cappuoreo: { name: 'Cappu-Oreo', description: 'Fusión perfecta de café espresso y galleta Oreo', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#2D1300] to-[#1A0D00]' },
+                samba: { name: 'Samba de Fresa', description: 'Cremoso de fresa, con trozos de galleta Samba crocante y cobertura de chocolate', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-pink-500 to-red-600' },
+                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.20, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
                 pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
                 pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
-                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate, hecho con cacao. Intenso y cremoso.', price: 1.20, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
-                arequipe: { name: 'Arequipe', description: 'Dulce y cremoso sabor a arequipe, con notas acarameladas que te encantarán', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-amber-600 to-amber-800' },
-                cocada: { name: 'Cocada', description: 'Cremoso helado de coco, refrescante y con un toque tropical', price: 1.20, stock: 16, shapeColor: 'bg-gradient-to-b from-white to-sky-100' },
-                colitaleche: { name: 'Colita con Leche', description: 'El sabor nostálgico de la Colita venezolana, cremosa y dulce', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-300 to-pink-500' },
-                ponchecrema: { name: 'Ponche Crema', description: 'El clásico sabor navideño venezolano, cremoso y con notas de ron (contiene alcohol)', price: 1.50, stock: 10, shapeColor: 'bg-gradient-to-b from-[#FFFDD0] to-[#FFFD99]' }
+                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate, hecho con cacao puro, intenso y cremoso', price: 1.20, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
+                cappuoreo: { name: 'Cappu-Oreo', description: 'Fusión de café espresso y galleta Oreo, con textura increíblemente suave', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#2D1300] to-[#1A0D00]' },
+                arequipe: { name: 'Arequipe', description: 'Dulce y cremoso sabor a arequipe, con notas acarameladas', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-amber-600 to-amber-800' },
+                cocada: { name: 'Cocada', description: 'Cremoso helado de coco natural', price: 1.20, stock: 16, shapeColor: 'bg-gradient-to-b from-white to-sky-100' },
+                colitaleche: { name: 'Colita con leche', description: 'Sabor nostálgico de la Colita venezolana, cremoso y dulce', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-300 to-pink-500' },
+                ponchecrema: { name: 'Ponche Crema', description: 'Sabor navideño venezolano, cremoso y con notas de ron (Contiene alcohol)', price: 1.50, stock: 10, shapeColor: 'bg-gradient-to-b from-[#FFFDD0] to-[#FFFD99]' } 
             },
             frutales: {
-                parchita: { name: 'Parchita', description: 'Frutal cítrico y refrescante', price: 0.30, stock: 10, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' },
-                jobito: { name: 'Jobito', description: 'Sabor típico dulce y ácido del jobito', price: 0.30, stock: 10, shapeColor: 'bg-gradient-to-b from-yellow-500 to-lime-600' }
+                parchita: { name: 'Parchita', description: 'Helado frutal de parchita, con sabor intenso y ácido', price: 0.30, stock: 10, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' },
+                jobito: { name: 'Jobito', description: 'Sabor dulce y ácido del jobito tropical', price: 0.30, stock: 10, shapeColor: 'bg-gradient-to-b from-yellow-500 to-lime-600' }
             }
         };
 
-        function renderPromoBanner() {
-            if (esMartesDePromo) {
-                const header = document.getElementById('header-container');
-                const banner = document.createElement('div');
-                banner.className = 'mt-4 animate-promo text-center';
-                banner.innerHTML = `<span class="bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">🔥 ¡MARTES DE PRIMO PROMO! Pie Limón + Pie Parchita = $2.10</span>`;
-                header.appendChild(banner);
-            }
-        }
-
         function renderMenu() {
-            const cremososCont = document.getElementById('cremosos-menu');
-            const frutalesCont = document.getElementById('frutales-menu');
-            const createCard = (id, item) => `
-                <div class="item-card bg-white rounded-xl shadow p-6 border border-gray-100">
-                    <div class="flex justify-between mb-2">
-                        <h3 class="font-playfair text-xl font-bold">${item.name}</h3>
-                        <span class="brand-accent font-bold">$${item.price.toFixed(2)}</span>
+            const cremososContainer = document.getElementById('cremosos-menu');
+            const frutalesContainer = document.getElementById('frutales-menu');
+            let cremososHtml = '';
+            let frutalesHtml = '';
+
+            const createCard = (itemId, itemData) => `
+                <div class="item-card bg-white rounded-xl shadow-lg border border-gray-100 p-6 transition-all duration-300 hover:shadow-xl">
+                    <div class="flex justify-between items-start mb-4">
+                        <h3 class="font-playfair text-2xl font-semibold text-gray-800">${itemData.name}</h3>
+                        <span class="brand-accent font-bold text-xl">$${itemData.price.toFixed(2)}</span>
                     </div>
-                    <p class="text-gray-500 text-sm mb-4">${item.description}</p>
-                    <div class="flex justify-between items-center">
-                        <div class="flex items-center space-x-3">
-                            <button class="bg-gray-200 px-3 py-1 rounded-full font-bold" onclick="updateQuantity('${id}', -1)">-</button>
-                            <span id="${id}-qty" class="font-bold">0</span>
-                            <button class="bg-brand-primary text-white px-3 py-1 rounded-full font-bold" onclick="updateQuantity('${id}', 1)">+</button>
+                    <p class="text-gray-600 mb-6 text-base">${itemData.description}</p>
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center space-x-4">
+                            <button class="quantity-btn bg-gray-200 hover:bg-gray-300 rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', -1)">-</button>
+                            <span id="${itemId}-qty" class="font-bold text-lg min-w-[30px] text-center">0</span>
+                            <button class="quantity-btn bg-brand-primary hover:bg-orange-600 text-white rounded-full w-10 h-10 flex items-center justify-center transition-all font-semibold" onclick="updateQuantity('${itemId}', 1)">+</button>
                         </div>
-                        <div class="ice-cream-shape ${item.shapeColor}"></div>
+                        <div class="ice-cream-shape ${itemData.shapeColor}"></div>
                     </div>
                 </div>`;
-            cremososCont.innerHTML = Object.entries(inventory.cremosos).filter(i => i[1].stock > 1).map(i => createCard(i[0], i[1])).join('');
-            frutalesCont.innerHTML = Object.entries(inventory.frutales).filter(i => i[1].stock > 1).map(i => createCard(i[0], i[1])).join('');
+
+            for (const [id, data] of Object.entries(inventory.cremosos)) if (data.stock > 1) cremososHtml += createCard(id, data);
+            for (const [id, data] of Object.entries(inventory.frutales)) if (data.stock > 1) frutalesHtml += createCard(id, data);
+
+            cremososContainer.innerHTML = cremososHtml;
+            frutalesContainer.innerHTML = frutalesHtml;
         }
 
-        function updateQuantity(id, change) {
-            if (!order[id]) order[id] = { quantity: 0 };
-            order[id].quantity = Math.max(0, order[id].quantity + change);
-            if (order[id].quantity === 0) delete order[id];
-            document.getElementById(id + '-qty').textContent = order[id] ? order[id].quantity : 0;
+        function updateQuantity(itemId, change) {
+            if (!order[itemId]) order[itemId] = { quantity: 0 };
+            order[itemId].quantity = Math.max(0, order[itemId].quantity + change);
+            if (order[itemId].quantity === 0) delete order[itemId];
+            document.getElementById(itemId + '-qty').textContent = order[itemId] ? order[itemId].quantity : 0;
             updateOrderSummary();
         }
 
         function selectDeliveryMethod(method) {
             selectedDeliveryMethod = method;
-            document.querySelectorAll('.delivery-option').forEach(b => b.classList.remove('border-brand-primary', 'bg-orange-50'));
-            document.getElementById(method + '-btn').classList.add('border-brand-primary', 'bg-orange-50');
+            document.querySelectorAll('.delivery-option').forEach(btn => btn.classList.remove('border-brand-primary', 'bg-orange-100'));
+            document.getElementById(method + '-btn').classList.add('border-brand-primary', 'bg-orange-100');
             updateOrderSummary();
         }
 
         function updateOrderSummary() {
-            const container = document.getElementById('order-items');
+            const orderItemsDiv = document.getElementById('order-items');
+            const totalPriceSpan = document.getElementById('total-price');
+            const whatsappBtn = document.getElementById('whatsapp-btn');
+            
             if (Object.keys(order).length === 0) {
-                container.innerHTML = `<p class="text-center text-gray-400 py-8">Tu carrito está vacío</p>`;
-                document.getElementById('total-price').textContent = '$0.00';
-                document.getElementById('whatsapp-btn').disabled = true;
+                orderItemsDiv.innerHTML = `<div class="text-center py-12"><p class="text-gray-500 text-lg">Selecciona tus helados favoritos</p></div>`;
+                totalPriceSpan.textContent = '$0.00';
+                whatsappBtn.disabled = true;
                 return;
             }
-            let totalOriginal = 0;
-            let totalQuantity = 0;
+
             let html = '';
-            for (const [id, item] of Object.entries(order)) {
-                const data = inventory.cremosos[id] || inventory.frutales[id];
-                const sub = data.price * item.quantity;
-                totalOriginal += sub;
-                totalQuantity += item.quantity;
-                html += `<div class="flex justify-between text-sm"><span>${data.name} x${item.quantity}</span><span class="font-bold">$${sub.toFixed(2)}</span></div>`;
+            let total = 0;
+            let totalQuantity = 0;
+
+            for (const [itemId, orderItem] of Object.entries(order)) {
+                const menuItem = inventory.cremosos[itemId] || inventory.frutales[itemId];
+                const itemTotal = menuItem.price * orderItem.quantity;
+                html += `<div class="flex justify-between items-start bg-gray-50 rounded-lg p-4"><div class="flex-1"><p class="font-semibold text-gray-800 text-lg">${menuItem.name}</p><p class="text-gray-600">Cantidad: ${orderItem.quantity}</p></div><span class="font-bold text-lg brand-accent">$${itemTotal.toFixed(2)}</span></div>`;
+                total += itemTotal;
+                totalQuantity += orderItem.quantity;
             }
-            let descuentoPromo = 0;
+
+            // Lógica Primo Promo
+            let discountPromo = 0;
             if (esMartesDePromo) {
                 const cantLimon = order['pielimon']?.quantity || 0;
                 const cantParchita = order['pieparchita']?.quantity || 0;
                 const numCombos = Math.min(cantLimon, cantParchita);
                 if (numCombos > 0) {
-                    descuentoPromo = numCombos * 0.30;
-                    html += `<div class="text-green-600 text-xs font-bold mt-2">✨ Primo Promo: -$${descuentoPromo.toFixed(2)}</div>`;
+                    discountPromo = numCombos * 0.30;
+                    html += `<div class="bg-orange-50 border border-orange-200 rounded-lg p-3 mb-4"><p class="text-orange-700 font-semibold text-sm">✨ ¡Primo Promo Aplicada! (${numCombos} combos)</p><p class="text-orange-600 text-xs">Ahorraste $${discountPromo.toFixed(2)}</p></div>`;
                 }
             }
-            let finalTotal = (totalOriginal - descuentoPromo);
+
+            let totalConPromo = total - discountPromo;
+            let finalTotal = totalQuantity >= 5 ? totalConPromo * 0.90 : totalConPromo;
+            
             if (totalQuantity >= 5) {
-                finalTotal *= 0.90;
-                html += `<div class="text-blue-600 text-xs font-bold">🎉 Descuento 10% por volumen</div>`;
+                html += `<div class="bg-green-50 border border-green-200 rounded-lg p-3 mb-4"><p class="text-green-700 font-semibold text-sm">🎉 ¡Descuento del 10%!</p></div>`;
             }
-            container.innerHTML = html;
-            document.getElementById('total-price').textContent = `$${finalTotal.toFixed(2)} / ${(finalTotal * bcvRate).toFixed(2)} Bs`;
-            document.getElementById('whatsapp-btn').disabled = false;
+
+            orderItemsDiv.innerHTML = html;
+            totalPriceSpan.textContent = `$${finalTotal.toFixed(2)} / ${(finalTotal * bcvRate).toFixed(2)} Bs`;
+            whatsappBtn.disabled = !selectedDeliveryMethod;
         }
 
         function sendWhatsAppOrder() {
-            let message = "*NUEVO PEDIDO TOPPAYS*\n\n";
-            message += `*Entrega:* ${selectedDeliveryMethod.toUpperCase()}\n\n`;
+            let message = "*PEDIDO TOPPAYS*\n\n";
+            message += `*Método:* ${selectedDeliveryMethod === 'pickup' ? 'PICK UP' : 'DELIVERY'}\n\n`;
             let total = 0;
-            let totalQty = 0;
-            for (const [id, item] of Object.entries(order)) {
-                const data = inventory.cremosos[id] || inventory.frutales[id];
-                message += `• ${data.name} x${item.quantity} ($${(data.price * item.quantity).toFixed(2)})\n`;
-                total += data.price * item.quantity;
-                totalQty += item.quantity;
+            let totalQuantity = 0;
+
+            for (const [itemId, orderItem] of Object.entries(order)) {
+                const menuItem = inventory.cremosos[itemId] || inventory.frutales[itemId];
+                message += `• *${menuItem.name}* x${orderItem.quantity}\n`;
+                total += menuItem.price * orderItem.quantity;
+                totalQuantity += orderItem.quantity;
             }
+
             if (esMartesDePromo) {
                 const numCombos = Math.min(order['pielimon']?.quantity || 0, order['pieparchita']?.quantity || 0);
                 if (numCombos > 0) {
@@ -211,7 +256,8 @@
                     message += `\n🎁 *Martes de Primo Promo aplicada!*`;
                 }
             }
-            if (totalQty >= 5) total *= 0.90;
+
+            if (totalQuantity >= 5) total *= 0.90;
             message += `\n\n*TOTAL: $${total.toFixed(2)} / ${(total * bcvRate).toFixed(2)} Bs*`;
             message += `\n\n*Pago Móvil:*\nCI: 28134317\nMercantil (0105)\n04248172692`;
             window.location.href = `https://wa.me/584129843410?text=${encodeURIComponent(message)}`;
@@ -219,8 +265,8 @@
 
         document.addEventListener('DOMContentLoaded', () => {
             renderMenu();
-            renderPromoBanner();
             selectDeliveryMethod('pickup');
+            if (esMartesDePromo) document.getElementById('promo-banner').classList.remove('hidden');
         });
     </script>
 </body>
