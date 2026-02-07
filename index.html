@@ -25,11 +25,11 @@
         <header class="bg-white shadow-sm border-b-4 border-brand-primary">
             <div id="header-container" class="max-w-7xl mx-auto px-4 py-8">
                 <h1 class="text-6xl font-black text-center text-white" style="font-family: Arial, sans-serif; background: linear-gradient(45deg, #FE6B01, #ff8533); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 2px 2px 4px rgba(0,0,0,0.3); font-weight: 900;">Töppäys</h1>
-                <p class="text-center text-orange-800 mt-3 font-medium text-lg">Heladería Gourmet • Cumaná</p>
+                <p class="text-center text-orange-800 mt-3 font-medium text-lg">Heladería Gourmet • Experiencia Única</p>
                 <p class="text-center brand-accent mt-2 font-bold text-xl">📞 0412-9843410</p>
                 <div class="mt-4 text-center">
                     <p class="text-orange-700 text-sm font-medium bg-orange-50 inline-block px-4 py-2 rounded-full border border-orange-200">
-                        💰 10% descuento en pedidos de 5+ helados
+                        💰 10% descuento en pedidos de 5+ helados • Solo contado
                     </p>
                 </div>
             </div>
@@ -41,14 +41,14 @@
                     <section class="mb-12">
                         <div class="category-cremosos rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍦 Helados Cremosos</h2>
-                            <p class="text-orange-100">Texturas suaves y sabores premium</p>
+                            <p class="text-orange-100">Sabores intensos y texturas artesanales</p>
                         </div>
                         <div id="cremosos-menu" class="grid gap-6"></div>
                     </section>
                     <section class="mb-12">
                         <div class="category-frutales rounded-xl p-8 mb-6 shadow-lg">
                             <h2 class="font-playfair text-4xl font-semibold text-white mb-3">🍓 Helados Frutales</h2>
-                            <p class="text-green-100">Refrescantes y naturales ($0.30)</p>
+                            <p class="text-green-100">Refrescantes, hechos con fruta real ($0.30)</p>
                         </div>
                         <div id="frutales-menu" class="grid gap-6"></div>
                     </section>
@@ -57,7 +57,6 @@
                 <div class="lg:col-span-1">
                     <div class="order-summary bg-white rounded-xl shadow-xl border border-gray-100 p-8">
                         <h3 class="font-playfair text-3xl font-semibold brand-accent mb-6">Tu Pedido</h3>
-                        
                         <div class="mb-8 p-4 bg-gray-50 rounded-xl border-2 border-orange-100">
                             <h4 class="font-semibold text-gray-800 mb-4">🚚 Método de Entrega</h4>
                             <div class="grid grid-cols-2 gap-3">
@@ -65,17 +64,13 @@
                                 <button id="delivery-btn" class="delivery-option p-4 rounded-lg border-2 border-gray-200 bg-white" onclick="selectDeliveryMethod('delivery')">🚚 Delivery</button>
                             </div>
                         </div>
-
                         <div id="order-items" class="space-y-4 mb-8"></div>
-                        
                         <div class="border-t border-gray-200 pt-6">
                             <div class="flex justify-between items-center text-2xl font-bold mb-6">
                                 <span class="text-gray-800">Total:</span>
                                 <span id="total-price" class="brand-accent">$0.00</span>
                             </div>
-                            <button id="whatsapp-btn" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg disabled:opacity-50" onclick="sendWhatsAppOrder()" disabled>
-                                Enviar por WhatsApp
-                            </button>
+                            <button id="whatsapp-btn" class="w-full bg-green-500 text-white font-bold py-4 rounded-xl shadow-lg disabled:opacity-50" onclick="sendWhatsAppOrder()" disabled>Enviar Pedido WhatsApp</button>
                         </div>
                     </div>
                 </div>
@@ -91,19 +86,24 @@
 
         let order = {};
         let selectedDeliveryMethod = 'pickup';
-        const bcvRate = 382.63; 
+        const bcvRate = 36.50; 
 
         const inventory = {
             cremosos: {
-                samba: { name: 'Samba de Fresa', description: 'Galleta crocante, chocolate y fresa', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-600 to-amber-900' },
-                oreo: { name: 'Oreo', description: 'Cremoso con trozos de galleta Oreo', price: 1.20, stock: 5, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
-                pielimon: { name: 'Pie de Limón', description: 'Cremoso cítrico con galleta', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
-                pieparchita: { name: 'Pie de Parchita', description: 'Tropical y gourmet', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
-                chocolate: { name: 'Chocolate', description: 'Chocolate Premium intenso', price: 1.20, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
-                cocada: { name: 'Cocada', description: 'Cremoso de coco natural', price: 1.20, stock: 16, shapeColor: 'bg-gradient-to-b from-white to-sky-100' }
+                samba: { name: 'Samba de Fresa', description: 'Cremosidad de fresa, trozos de galleta y chocolate. Todo lo que amas de la Samba, ahora en una Töppäys."', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-600 to-amber-900' },
+                oreo: { name: 'Oreo', description: 'Cremoso helado con trozos de galleta Oreo, perfecto equilibrio entre dulce y crujiente', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-gray-700 to-gray-900' },
+                cappuoreo: { name: 'Cappu-Oreo', description: 'Fusión perfecta de café espresso y galleta Oreo', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#2D1300] to-[#1A0D00]' },
+                pielimon: { name: 'Pie de Limón', description: 'Delicioso sabor a pie de limón con notas cítricas refrescantes y cremosidad única', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-[#B2EF5B] to-[#9CDA48]' },
+                pieparchita: { name: 'Pie de Parchita', description: 'Exótico sabor tropical de parchita en textura cremosa, una experiencia gourmet única', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-orange-400 to-orange-600' },
+                chocolate: { name: 'Chocolate', description: 'Clásico helado de chocolate, hecho con cacao. Intenso y cremoso.', price: 1.20, stock: 14, shapeColor: 'bg-gradient-to-b from-amber-800 to-amber-900' },
+                arequipe: { name: 'Arequipe', description: 'Dulce y cremoso sabor a arequipe, con notas acarameladas que te encantarán', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-amber-600 to-amber-800' },
+                cocada: { name: 'Cocada', description: 'Cremoso helado de coco, refrescante y con un toque tropical', price: 1.20, stock: 16, shapeColor: 'bg-gradient-to-b from-white to-sky-100' },
+                colitaleche: { name: 'Colita con Leche', description: 'El sabor nostálgico de la Colita venezolana, cremosa y dulce', price: 1.20, stock: 10, shapeColor: 'bg-gradient-to-b from-red-300 to-pink-500' },
+                ponchecrema: { name: 'Ponche Crema', description: 'El clásico sabor navideño venezolano, cremoso y con notas de ron (contiene alcohol)', price: 1.50, stock: 10, shapeColor: 'bg-gradient-to-b from-[#FFFDD0] to-[#FFFD99]' }
             },
             frutales: {
-                parchita: { name: 'Parchita', description: 'Refrescante y ácido', price: 0.30, stock: 5, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' }
+                parchita: { name: 'Parchita', description: 'Frutal cítrico y refrescante', price: 0.30, stock: 10, shapeColor: 'bg-gradient-to-b from-yellow-400 to-orange-500' },
+                jobito: { name: 'Jobito', description: 'Sabor típico dulce y ácido del jobito', price: 0.30, stock: 10, shapeColor: 'bg-gradient-to-b from-yellow-500 to-lime-600' }
             }
         };
 
@@ -112,7 +112,7 @@
                 const header = document.getElementById('header-container');
                 const banner = document.createElement('div');
                 banner.className = 'mt-4 animate-promo text-center';
-                banner.innerHTML = `<span class="bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">🔥 ¡MARTES DE PRIMO PROMO! Pie Limón + Parchita = $2.10</span>`;
+                banner.innerHTML = `<span class="bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">🔥 ¡MARTES DE PRIMO PROMO! Pie Limón + Pie Parchita = $2.10</span>`;
                 header.appendChild(banner);
             }
         }
@@ -120,7 +120,6 @@
         function renderMenu() {
             const cremososCont = document.getElementById('cremosos-menu');
             const frutalesCont = document.getElementById('frutales-menu');
-            
             const createCard = (id, item) => `
                 <div class="item-card bg-white rounded-xl shadow p-6 border border-gray-100">
                     <div class="flex justify-between mb-2">
@@ -137,7 +136,6 @@
                         <div class="ice-cream-shape ${item.shapeColor}"></div>
                     </div>
                 </div>`;
-
             cremososCont.innerHTML = Object.entries(inventory.cremosos).filter(i => i[1].stock > 1).map(i => createCard(i[0], i[1])).join('');
             frutalesCont.innerHTML = Object.entries(inventory.frutales).filter(i => i[1].stock > 1).map(i => createCard(i[0], i[1])).join('');
         }
@@ -165,11 +163,9 @@
                 document.getElementById('whatsapp-btn').disabled = true;
                 return;
             }
-
             let totalOriginal = 0;
             let totalQuantity = 0;
             let html = '';
-
             for (const [id, item] of Object.entries(order)) {
                 const data = inventory.cremosos[id] || inventory.frutales[id];
                 const sub = data.price * item.quantity;
@@ -177,26 +173,21 @@
                 totalQuantity += item.quantity;
                 html += `<div class="flex justify-between text-sm"><span>${data.name} x${item.quantity}</span><span class="font-bold">$${sub.toFixed(2)}</span></div>`;
             }
-
-            // Lógica Primo Promo
             let descuentoPromo = 0;
             if (esMartesDePromo) {
-                const cantLimon = order['pielimon'] ? order['pielimon'].quantity : 0;
-                const cantParchita = order['pieparchita'] ? order['pieparchita'].quantity : 0;
+                const cantLimon = order['pielimon']?.quantity || 0;
+                const cantParchita = order['pieparchita']?.quantity || 0;
                 const numCombos = Math.min(cantLimon, cantParchita);
                 if (numCombos > 0) {
                     descuentoPromo = numCombos * 0.30;
-                    html += `<div class="text-green-600 text-xs font-bold mt-2">✨ Primo Promo Aplicada (-$${descuentoPromo.toFixed(2)})</div>`;
+                    html += `<div class="text-green-600 text-xs font-bold mt-2">✨ Primo Promo: -$${descuentoPromo.toFixed(2)}</div>`;
                 }
             }
-
-            let totalConPromo = totalOriginal - descuentoPromo;
-            let finalTotal = totalQuantity >= 5 ? totalConPromo * 0.90 : totalConPromo;
-            
+            let finalTotal = (totalOriginal - descuentoPromo);
             if (totalQuantity >= 5) {
-                html += `<div class="text-blue-600 text-xs font-bold">🎉 Descuento 10% aplicado</div>`;
+                finalTotal *= 0.90;
+                html += `<div class="text-blue-600 text-xs font-bold">🎉 Descuento 10% por volumen</div>`;
             }
-
             container.innerHTML = html;
             document.getElementById('total-price').textContent = `$${finalTotal.toFixed(2)} / ${(finalTotal * bcvRate).toFixed(2)} Bs`;
             document.getElementById('whatsapp-btn').disabled = false;
@@ -205,29 +196,24 @@
         function sendWhatsAppOrder() {
             let message = "*NUEVO PEDIDO TOPPAYS*\n\n";
             message += `*Entrega:* ${selectedDeliveryMethod.toUpperCase()}\n\n`;
-            
             let total = 0;
             let totalQty = 0;
             for (const [id, item] of Object.entries(order)) {
                 const data = inventory.cremosos[id] || inventory.frutales[id];
-                message += `• ${data.name} x${item.quantity}\n`;
+                message += `• ${data.name} x${item.quantity} ($${(data.price * item.quantity).toFixed(2)})\n`;
                 total += data.price * item.quantity;
                 totalQty += item.quantity;
             }
-
             if (esMartesDePromo) {
                 const numCombos = Math.min(order['pielimon']?.quantity || 0, order['pieparchita']?.quantity || 0);
                 if (numCombos > 0) {
                     total -= (numCombos * 0.30);
-                    message += `\n🎁 *Promo Martes aplicada!*`;
+                    message += `\n🎁 *Martes de Primo Promo aplicada!*`;
                 }
             }
-
             if (totalQty >= 5) total *= 0.90;
-
             message += `\n\n*TOTAL: $${total.toFixed(2)} / ${(total * bcvRate).toFixed(2)} Bs*`;
-            message += `\n\n*Datos Pago Móvil:*\nCI: 28134317\nMercantil (0105)\n04248172692`;
-            
+            message += `\n\n*Pago Móvil:*\nCI: 28134317\nMercantil (0105)\n04248172692`;
             window.location.href = `https://wa.me/584129843410?text=${encodeURIComponent(message)}`;
         }
 
