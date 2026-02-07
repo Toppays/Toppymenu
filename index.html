@@ -45,7 +45,7 @@
                 </div>
                 <div id="promo-banner" class="hidden mt-4 animate-promo text-center">
                     <span class="bg-red-600 text-white text-sm font-bold px-6 py-2 rounded-full shadow-lg border-2 border-white">
-                        🔥 ¡HOY ES MARTES DE PRIMO PROMO! Pie Limón + Parchita = $2.10
+                        🔥 ¡HOY ES MARTES DE PRIMO PROMO! Pie Limón + Pie Parchita = $2.10
                     </span>
                 </div>
             </div>
@@ -238,7 +238,7 @@
 
         function sendWhatsAppOrder() {
             let message = "*PEDIDO TOPPAYS*\n\n";
-            message += `*Método:* ${selectedDeliveryMethod === 'pickup' ? 'PICK UP' : 'DELIVERY'}\n\n`;
+            message += `*Método de entrega:* ${selectedDeliveryMethod === 'pickup' ? 'PICK UP' : 'DELIVERY'}\n\n`;
             let total = 0;
             let totalQuantity = 0;
 
@@ -259,7 +259,7 @@
 
             if (totalQuantity >= 5) total *= 0.90;
             message += `\n\n*TOTAL: $${total.toFixed(2)} / ${(total * bcvRate).toFixed(2)} Bs*`;
-            message += `\n\n*Pago Móvil:*\nCI: 28134317\nMercantil (0105)\n04248172692`;
+            message += `\n\n*Pago Móvil:*\nC.I.: 28134317\nMercantil (0105)\n04248172692`;
             window.location.href = `https://wa.me/584129843410?text=${encodeURIComponent(message)}`;
         }
 
@@ -271,3 +271,4 @@
     </script>
 </body>
 </html>
+
